@@ -8,11 +8,11 @@ package model;
  */
 public class ToDoListItem {
 
-	// Var declaration
+	//define vars
 	private int id;
 	private String title;
 	private String description;
-
+	private int userId ;
 	/**
 	 * Default constructor
 	 */
@@ -26,11 +26,12 @@ public class ToDoListItem {
 	 * @param description
 	 
 	 */
-	public ToDoListItem(int id, String title, String description) {
+	public ToDoListItem(int id, String title, String description ) {
 		super();
 		setId(id);
 		setTitle(title);
 		setDescription(description);
+		setUserId(0); /// need to change 
 	}
 
 	////****** need to validate values in the setters **** don't forget!!!
@@ -92,6 +93,22 @@ public class ToDoListItem {
 			return "Todo [id=" + id + ", title=" + title + ", description="
 					+ description + "]";
 		}
+	}
+
+
+	/**
+	 * @return the userID
+	 */
+	public int getUserId() {
+		return userId;
+	}
+
+
+	/**
+	 * @param userID the userID to set
+	 */
+	public void setUserId(int userID) {
+		this.userId = userID;
 	}
 
 

@@ -1,0 +1,21 @@
+package model;
+
+public class ToDoListMain {
+
+	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//		try {
+//		//	User user = new User("moshe","shimon",123);
+//			
+//			
+//		System.out.println(HibernateToDoListDAO.getInstance().addToDoListItem(new ToDoListItem(1,"blala","bla")));
+//		}catch (ToDoListsPlatformException e){
+//			e.printStackTrace();
+//		}
+
+		Md5Handler.passAuthentication("mmm");
+		
+		
+	}
+
+}

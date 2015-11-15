@@ -1,0 +1,106 @@
+package model;
+
+
+/**
+ * User class
+ * Represents user in database 
+ * @author Moshe Shimon
+ *
+ */
+public class User {
+
+	//define vars
+	
+	private String userName;
+	private String userLastName;
+	private int id;
+	private String Password;
+	
+	
+	
+	/**
+	 * default constructor
+	 */
+	
+	public User(){}
+	
+	/**
+	 * @param userName
+	 * @param userLastName
+	 * @param id
+	 */
+	public User(String userName, String userLastName, int id ,String password) {
+		super();
+		setUserName(userName);
+		setUserLastName(userLastName);
+		setId(id);
+		setPassword(password);
+	}
+	
+	
+	
+	
+	/**
+	 * @return the userName
+	 */
+	public String getUserName() {
+		return userName;
+	}
+
+	/**
+	 * @param userName the userName to set
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return Password;
+	}
+
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		Password = password;
+	}
+
+	/**
+	 * @return the userLastName
+	 */
+	public String getUserLastName() {
+		return userLastName;
+	}
+
+	/**
+	 * @param userLastName the userLastName to set
+	 */
+	public void setUserLastName(String userLastName) {
+		this.userLastName = userLastName;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	
+	
+	
+	
+	
+	
+}

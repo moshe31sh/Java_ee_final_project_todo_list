@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.lang.Boolean"/>
+<fullyQualifiedTypeName name="com.sun.istack.internal.logging.Logger"/>
+<fullyQualifiedTypeName name="model.IToDoListDAO"/>
+<fullyQualifiedTypeName name="model.ToDoListItem"/>
+<fullyQualifiedTypeName name="model.ToDoListDAO"/>
+<fullyQualifiedTypeName name="com.sun.javafx.collections.MappingChange.Map"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="model.User"/>
+<fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+<fullyQualifiedTypeName name="org.hibernate.cfg.AnnotationConfiguration"/>
+<fullyQualifiedTypeName name="javax.websocket.Session"/>
+<fullyQualifiedTypeName name="java.security.MessageDigest"/>
+<fullyQualifiedTypeName name="java.security.NoSuchAlgorithmException"/>
+<fullyQualifiedTypeName name="model.Md5Handler"/>
+<fullyQualifiedTypeName name="org.hibernate.classic.Session"/>
+<fullyQualifiedTypeName name="model.AuthenticationHandler"/>
+<fullyQualifiedTypeName name="model.ToDoListsPlatformException"/>
+<fullyQualifiedTypeName name="javax.swing.text.StyledEditorKit.BoldAction"/>
+<fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
+<fullyQualifiedTypeName name="model.SessionFactoryAccess"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="javax.management.Query"/>
+<fullyQualifiedTypeName name="model.DefineQuery"/>
 </qualifiedTypeNameHistroy>
