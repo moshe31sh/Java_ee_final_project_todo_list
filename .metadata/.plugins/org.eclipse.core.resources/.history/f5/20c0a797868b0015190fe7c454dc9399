@@ -14,9 +14,8 @@ public class ToDoListMain {
 
 	//	AuthenticationHandler.passAuthentication("mmm");
 //		try{
-		//AuthenticationHandler.getInstance().signUpNewUser(user);
-	AuthenticationHandler.getInstance().signInExistUser(user);
-
+		AuthenticationHandler.getInstance().signUpNewUser(user);
+		
 		}catch(AuthenticationHandlerException e){
 			e.printStackTrace();
 		

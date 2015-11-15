@@ -2,7 +2,6 @@ package model;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Collection;
 
 import javax.swing.text.StyledEditorKit.BoldAction;
 
@@ -10,8 +9,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.classic.Session;
 
 import com.sun.istack.internal.logging.Logger;
-
-import javafx.print.Collation;
 
 /**
  * Represents the MD5 Logic Controller
@@ -56,9 +53,21 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 		user.setPassword(passEncryption(user.getPassword()));
 		//check if user exist , if yes returns user instance
 		if ((authenticatUser = checkIfUserExist(user.getUserId())) != null){
-			
-			//if (authenticatUser.getUserName() == user){
-			
+			try{
+				this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
+				System.out.println(authenticatUser.getPassword());
+
+			}catch(HibernateException e){
+				//roll back in case of problem
+				if (this.session.getTransaction() != null) {
+					this.session.getTransaction().rollback();
+				}
+				throw new  AuthenticationHandlerException("Problem add new user", e);
+
+
+			} finally {
+				this.session.close();
+			}
 		}else {
 			System.out.println("user isn't in DB");
 			logger.info("error authentication user");
@@ -66,17 +75,8 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 
 	}
 	
-	/**
-	 * compare between 2 object , if equal returns true 
-	 *  @param requestUser
-	 * @param dataBaseUser
-	 * @return
-	 */
-	private boolean comperUsers(User requestUser , User dataBaseUser){
-			
-		
-		return true;
-	}
+	
+	
 	
 
 	/**

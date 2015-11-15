@@ -15,7 +15,7 @@ public interface IAuthenticationHandler {
 	 * @param user - contain user info
 	 * @throws AuthenticationHandlerException
 	 */
-	public void signInExistUser(User user) throws AuthenticationHandlerException;
+	public void LogInExistUser(User user) throws AuthenticationHandlerException;
 	
 	
 	/**

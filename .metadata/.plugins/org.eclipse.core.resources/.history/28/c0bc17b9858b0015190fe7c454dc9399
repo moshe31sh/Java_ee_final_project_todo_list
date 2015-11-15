@@ -2,7 +2,6 @@ package model;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Collection;
 
 import javax.swing.text.StyledEditorKit.BoldAction;
 
@@ -10,8 +9,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.classic.Session;
 
 import com.sun.istack.internal.logging.Logger;
-
-import javafx.print.Collation;
 
 /**
  * Represents the MD5 Logic Controller
@@ -42,45 +39,18 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 	}
 
 	/**
-	 * gets user object and verify if exist in DB
+	 * gets user object and verify its data 
+	 * with DB 
 	 * @param user
-	 * @throws AuthenticationHandlerException 
 	 */
-	public void signInExistUser(User user) throws AuthenticationHandlerException{
-		//user holder var
-		User authenticatUser;
-		
-		logger.info("Sign in request");
-		
-		/// set encrypted password to user
-		user.setPassword(passEncryption(user.getPassword()));
-		//check if user exist , if yes returns user instance
-		if ((authenticatUser = checkIfUserExist(user.getUserId())) != null){
-			
-			//if (authenticatUser.getUserName() == user){
-			
-		}else {
-			System.out.println("user isn't in DB");
-			logger.info("error authentication user");
-		}
+	public void LogInExistUser(User user){
+		this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
+
 
 	}
-	
-	/**
-	 * compare between 2 object , if equal returns true 
-	 *  @param requestUser
-	 * @param dataBaseUser
-	 * @return
-	 */
-	private boolean comperUsers(User requestUser , User dataBaseUser){
-			
-		
-		return true;
-	}
-	
 
 	/**
-	 * gets user object verify if exist in DB
+	 * gets user object check if exist in DB
 	 * if not exist create new one
 	 * the pass will be encrypted in DB with md5 algorithm
 	 * @param user
@@ -90,9 +60,9 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 
 
 
-		logger.info("Sign up request");
+		logger.info("Open session");
 		//check if user is in DB
-		if (checkIfUserExist(user.getUserId()) == null){
+		if (checkIfUserExist(user.getUserId()) == false){
 			try{
 				this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
 				/// set encrypted password to user
@@ -160,12 +130,12 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 	}
 
 
-	private User checkIfUserExist(int userId) throws AuthenticationHandlerException{
+	private boolean checkIfUserExist(int userId) throws AuthenticationHandlerException{
 		try{
 			this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
 			User user = (User) this.session.get(User.class , userId);	
 			if (user != null){
-				return user;
+				return true;
 			}
 		}catch (HibernateException e){		//roll back in case of problem
 
@@ -174,7 +144,7 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 		} finally {
 			this.session.close();
 		}
-		return null;
+		return false;
 	}
 
 }

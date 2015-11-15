@@ -5,6 +5,7 @@
 <hibernate-mapping>
 	<class name="model.ToDoListItem" table="ITEM">
 		<id name="id" type="int" column="ID" >
+		<generator class="increment"/>
 		</id>
 		<property name="title">
 			<column name="TITLE"/>

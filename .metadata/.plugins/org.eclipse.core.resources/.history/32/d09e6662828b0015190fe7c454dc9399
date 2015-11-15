@@ -2,7 +2,6 @@ package model;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Collection;
 
 import javax.swing.text.StyledEditorKit.BoldAction;
 
@@ -10,8 +9,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.classic.Session;
 
 import com.sun.istack.internal.logging.Logger;
-
-import javafx.print.Collation;
 
 /**
  * Represents the MD5 Logic Controller
@@ -21,7 +18,7 @@ import javafx.print.Collation;
  * @author Moshe Shimon
  *
  */
-public class AuthenticationHandler implements IAuthenticationHandler{
+public class AuthenticationHandler {
 
 	//define vars
 	private static AuthenticationHandler instance;
@@ -42,57 +39,30 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 	}
 
 	/**
-	 * gets user object and verify if exist in DB
+	 * gets user object and verify its data 
+	 * with DB 
 	 * @param user
-	 * @throws AuthenticationHandlerException 
 	 */
-	public void signInExistUser(User user) throws AuthenticationHandlerException{
-		//user holder var
-		User authenticatUser;
-		
-		logger.info("Sign in request");
-		
-		/// set encrypted password to user
-		user.setPassword(passEncryption(user.getPassword()));
-		//check if user exist , if yes returns user instance
-		if ((authenticatUser = checkIfUserExist(user.getUserId())) != null){
-			
-			//if (authenticatUser.getUserName() == user){
-			
-		}else {
-			System.out.println("user isn't in DB");
-			logger.info("error authentication user");
-		}
+	public void LogInExistUser(User user){
+		this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
+
 
 	}
-	
-	/**
-	 * compare between 2 object , if equal returns true 
-	 *  @param requestUser
-	 * @param dataBaseUser
-	 * @return
-	 */
-	private boolean comperUsers(User requestUser , User dataBaseUser){
-			
-		
-		return true;
-	}
-	
 
 	/**
-	 * gets user object verify if exist in DB
+	 * gets user object check if exist in DB
 	 * if not exist create new one
 	 * the pass will be encrypted in DB with md5 algorithm
 	 * @param user
 	 * @throws ToDoListsPlatformException 
 	 */
-	public void signUpNewUser(User user) throws  AuthenticationHandlerException{
+	public void signUpNewUser(User user) throws ToDoListsPlatformException{
 
 
 
-		logger.info("Sign up request");
+		logger.info("Open session");
 		//check if user is in DB
-		if (checkIfUserExist(user.getUserId()) == null){
+		if (checkIfUserExist(user.getUserId()) == false){
 			try{
 				this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
 				/// set encrypted password to user
@@ -107,7 +77,7 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 				if (this.session.getTransaction() != null) {
 					this.session.getTransaction().rollback();
 				}
-				throw new  AuthenticationHandlerException("Problem add new user", e);
+				throw new ToDoListsPlatformException("Problem add new user", e);
 
 
 			} finally {
@@ -160,21 +130,21 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 	}
 
 
-	private User checkIfUserExist(int userId) throws AuthenticationHandlerException{
+	private boolean checkIfUserExist(int userId) throws ToDoListsPlatformException{
 		try{
 			this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
 			User user = (User) this.session.get(User.class , userId);	
 			if (user != null){
-				return user;
+				return true;
 			}
 		}catch (HibernateException e){		//roll back in case of problem
 
-			throw new AuthenticationHandlerException("check if user exist failed", e);
+			throw new ToDoListsPlatformException("check if user exist failed", e);
 
 		} finally {
 			this.session.close();
 		}
-		return null;
+		return false;
 	}
 
 }
