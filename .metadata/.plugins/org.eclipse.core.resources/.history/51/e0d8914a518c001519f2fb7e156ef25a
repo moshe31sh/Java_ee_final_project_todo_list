@@ -1,0 +1,8 @@
+
+
+import model.User
+
+object ScalaUtility {
+   
+
+}

@@ -1,0 +1,46 @@
+
+
+package model
+import java.security.MessageDigest;
+
+/**
+ * Scala utilities object 
+ * 
+ */
+
+object AuthenticationHandlerUtilitiesScala {
+	/**
+	 * compare between 2 object , if equal returns true 
+	 *  @param requestUser
+	 * @param dataBaseUser
+	 * @return
+	 */
+
+	def comperUsers(requestUser :User , dataBaseUser :User): Boolean = {
+			if (requestUser.getUserName() == dataBaseUser.getUserName() && 
+					requestUser.getUserLastName() == dataBaseUser.getUserLastName() &&
+					requestUser.getUserId() == dataBaseUser.getUserId() && 
+					requestUser.getPassword() == dataBaseUser.getPassword()){
+				return true;
+			}
+			return false;
+
+	}
+	
+	def passEncryption( pass:String): String = {
+	  var bytes :Array[Byte]  = null
+	  val md = java.security.MessageDigest.getInstance("MD5")
+	  md.update(pass.getBytes())
+	  bytes = md.digest()
+	  val sb = new StringBuilder()
+	  var i = 0
+	  for(i <-0 until bytes.length){
+		sb.append(Integer.toString((bytes(i) & 0xff) + 0x100, 16).substring(1))
+	  }
+	  return sb.toString()
+   
+   // println(m.toString());
+  }
+
+	
+}

@@ -1,0 +1,20 @@
+
+
+package model
+
+object UtilitiesScala {
+
+
+	def comperUsers(requestUser :User , dataBaseUser :User): Boolean = {
+			if (requestUser.getUserName() == dataBaseUser.getUserName() && 
+					requestUser.getUserLastName() == dataBaseUser.getUserLastName() &&
+					requestUser.getUserId() == dataBaseUser.getUserId() && 
+					requestUser.getPassword() == dataBaseUser.getPassword()){
+				return true;
+			}
+			return false;
+
+	}
+	
+	
+}

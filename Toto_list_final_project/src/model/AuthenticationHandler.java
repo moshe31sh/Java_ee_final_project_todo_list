@@ -49,15 +49,16 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 	public void signInExistUser(User user) throws AuthenticationHandlerException{
 		//user holder var
 		User authenticatUser;
-		
 		logger.info("Sign in request");
 		
 		/// set encrypted password to user
-		user.setPassword(passEncryption(user.getPassword()));
+		user.setPassword(AuthenticationHandlerUtilitiesScala.passEncryption(user.getPassword()));
 		//check if user exist , if yes returns user instance
 		if ((authenticatUser = checkIfUserExist(user.getUserId())) != null){
-			
-			//if (authenticatUser.getUserName() == user){
+			System.out.println(user.toString());
+			System.out.println(authenticatUser.toString());
+		System.out.println(AuthenticationHandlerUtilitiesScala.comperUsers(user, authenticatUser));
+
 			
 		}else {
 			System.out.println("user isn't in DB");
@@ -66,17 +67,10 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 
 	}
 	
-	/**
-	 * compare between 2 object , if equal returns true 
-	 *  @param requestUser
-	 * @param dataBaseUser
-	 * @return
-	 */
-	private boolean comperUsers(User requestUser , User dataBaseUser){
-			
-		
-		return true;
-	}
+
+
+	
+	
 	
 
 	/**
@@ -96,7 +90,7 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 			try{
 				this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
 				/// set encrypted password to user
-				user.setPassword(passEncryption(user.getPassword()));
+				user.setPassword(AuthenticationHandlerUtilitiesScala.passEncryption(user.getPassword()));
 				this.session.beginTransaction();
 				this.session.save(user);
 				this.session.getTransaction().commit();
@@ -121,43 +115,6 @@ public class AuthenticationHandler implements IAuthenticationHandler{
 	}
 
 
-
-	/**
-	 * receive user password and encrypt it
-	 * returns md5 string 
-	 * @param pass
-	 * @return
-	 */
-	private String passEncryption(String pass) {
-		String generatedPassword = null;
-		try {
-			logger.info("convert password");
-			// Create MessageDigest instance for MD5
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			//Add password bytes to digest
-			md.update(pass.getBytes());
-			//Get the hash's bytes
-			byte[] bytes = md.digest();
-			//This bytes[] has bytes in decimal format;
-			//Convert it to hexadecimal format
-			StringBuilder sb = new StringBuilder();
-			for(int i=0; i< bytes.length ;i++)
-			{
-				sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-			}
-			//Get complete hashed password in hex format
-			generatedPassword = sb.toString();
-		}
-		catch (NoSuchAlgorithmException e)
-		{
-			e.printStackTrace();
-			logger.info("password hashed faild");
-			return null;
-		}
-
-		logger.info("password successfuly hashed ");
-		return generatedPassword;
-	}
 
 
 	private User checkIfUserExist(int userId) throws AuthenticationHandlerException{

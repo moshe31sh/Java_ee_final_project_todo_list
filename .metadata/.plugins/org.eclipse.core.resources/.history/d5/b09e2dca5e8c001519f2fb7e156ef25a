@@ -1,0 +1,66 @@
+
+
+package model
+import java.security.MessageDigest;
+
+/**
+ * Scala utilities object 
+ * 
+ */
+
+object AuthenticationHandlerUtilitiesScala {
+	/**
+	 * compare between 2 object , if equal returns true 
+	 *  @param requestUser
+	 * @param dataBaseUser
+	 * @return
+	 */
+
+	def comperUsers(requestUser :User , dataBaseUser :User): Boolean = {
+			if (requestUser.getUserName() == dataBaseUser.getUserName() && 
+					requestUser.getUserLastName() == dataBaseUser.getUserLastName() &&
+					requestUser.getUserId() == dataBaseUser.getUserId() && 
+					requestUser.getPassword() == dataBaseUser.getPassword()){
+				return true;
+			}
+			return false;
+
+	}
+	
+	def passEncryption( pass:String): String = {
+	  val generatedPassword = null :String;
+	  val md = null: String ;
+	  val  bytes : byte [] ;
+	  val sb  :StringBuilder;
+	  val i = 0:Int 
+		try {
+	//		logger.info("convert password");
+			// Create MessageDigest instance for MD5
+		  md = MessageDigest.getInstance("MD5");
+			//Add password bytes to digest
+			md.update(pass.getBytes());
+			//Get the hash's bytes
+			 bytes = md.digest();
+			//This bytes[] has bytes in decimal format;
+			//Convert it to hexadecimal format
+			 sb = new StringBuilder();
+			
+			for(i to bytes.length){
+				sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+			}
+			//Get complete hashed password in hex format
+			generatedPassword = sb.toString();
+		}
+		catch (NoSuchAlgorithmException e)
+		{
+			e.printStackTrace();
+			logger.info("password hashed faild");
+			return null;
+		}
+
+		logger.info("password successfuly hashed ");
+		return generatedPassword;
+	}
+
+	
+}
