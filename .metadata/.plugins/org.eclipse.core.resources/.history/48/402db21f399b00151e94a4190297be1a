@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html/; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="./CSS/style.css">
+
+<title>Login</title>
+</head>
+<body>
+<form id="login-form" method="get" action="/Toto_list_final_project/ToDoListMainController">
+    Id: &nbsp; <input type="text" placeholder="id" name="id"  title="Inset Id"/>
+    <br>
+    Password:<input type="password" size ="20" name="pass" placeholder="password" title="Inset Pass"/>
+    <br>
+    <input type="submit"/>
+</form>
+
+</body>
+</html>

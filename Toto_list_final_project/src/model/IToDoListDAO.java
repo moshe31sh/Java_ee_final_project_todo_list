@@ -1,5 +1,8 @@
 package model;
 
+import java.util.Collection;
+
+import javafx.print.Collation;
 
 /**
  * ToDoList Data Access Object
@@ -25,7 +28,7 @@ public Boolean addToDoListItem(ToDoListItem Item) throws ToDoListsPlatformExcept
  * @throws ToDoListsPlatformException
  */
 
-public Boolean deleteToDoListItem() throws ToDoListsPlatformException;
+public Boolean deleteToDoListItem(ToDoListItem item) throws ToDoListsPlatformException;
 
 
 /**
@@ -33,6 +36,16 @@ public Boolean deleteToDoListItem() throws ToDoListsPlatformException;
  * @return
  * @throws ToDoListsPlatformException
  */
-public ToDoListItem [] getAllToDoListItem() throws ToDoListsPlatformException;
+public Collection<ToDoListItem> getAllToDoListItem(int userId) throws ToDoListsPlatformException;
 
+
+
+
+/**
+ * Update ToDoList item to database
+ * @return true if success or false if failed
+ * @throws ToDoListsPlatformException
+ */
+
+public Boolean updateToDoListItem(ToDoListItem item) throws ToDoListsPlatformException;
 }

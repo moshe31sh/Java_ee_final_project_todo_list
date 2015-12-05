@@ -1,0 +1,9 @@
+package controller;
+
+public class Snippet {
+	//checking which url address the request was equipped with
+		StringBuffer sb = request.getRequestURL();
+		java.io.PrintWriter out = response.getWriter();
+		String url = sb.toString();
+}
+

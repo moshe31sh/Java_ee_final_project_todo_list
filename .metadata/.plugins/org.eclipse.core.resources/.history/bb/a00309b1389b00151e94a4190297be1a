@@ -1,0 +1,10 @@
+body{
+	width:100%;
+}
+
+#login-form{
+	display:block;
+	width: 40%;
+	border: solid 1px blue;
+	min-height: 100px; 
+}

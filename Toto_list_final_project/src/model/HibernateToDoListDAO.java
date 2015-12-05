@@ -6,6 +6,11 @@ package model;
 
 import org.hibernate.Query;
 import org.hibernate.classic.Session;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Iterator;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -81,18 +86,90 @@ public class HibernateToDoListDAO implements IToDoListDAO  {
 	 * @see model.IToDoListDAO#deleteToDoListItem()
 	 */
 	@Override
-	public Boolean deleteToDoListItem() throws ToDoListsPlatformException {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean deleteToDoListItem(ToDoListItem item) throws ToDoListsPlatformException {
+		try{
+			logger.info("Delete item "+item.getId()+" "+item.getTitle());
+			this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
+			this.session.beginTransaction();
+			this.session.delete(item);
+			this.session.getTransaction().commit();
+
+		}catch (HibernateException e){
+			if (this.session.getTransaction() != null) {
+				this.session.getTransaction().rollback();
+			}
+			logger.info("Add item failed"+item.getId()+" "+item.getTitle());
+			throw new ToDoListsPlatformException("Problem add item", e);
+		} finally {
+			this.session.close();
+		}
+		return true;
 	}
 
 	/* (non-Javadoc)
 	 * @see model.IToDoListDAO#getAllToDoListItem()
 	 */
 	@Override
-	public ToDoListItem[] getAllToDoListItem() throws ToDoListsPlatformException {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<ToDoListItem> getAllToDoListItem(int userId) throws ToDoListsPlatformException {
+		
+		
+		/*
+		 * To do
+		 * fix this method by using collection
+		 */
+		
+		ArrayList<ToDoListItem> arrayList = new ArrayList<ToDoListItem>();
+		
+		try{
+			logger.info("Get items");
+			this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
+			this.session.beginTransaction();
+			List<ToDoListItem> itemLiset = session.createQuery("FROM ToDoListItem WHERE userId="+userId).list();
+			Iterator i = itemLiset.iterator();
+			while(i.hasNext()) 
+			{
+				ToDoListItem item = (ToDoListItem) i.next();
+				arrayList.add(item);
+				System.out.println(item.getDescription());
+			}
+				
+		}catch (HibernateException e){
+			if (this.session.getTransaction() != null) {
+				this.session.getTransaction().rollback();
+			}
+			
+			throw new ToDoListsPlatformException("Problem get all items", e);
+		} finally {
+			this.session.close();
+		}
+		return arrayList;
+	}
+
+
+
+
+	/* (non-Javadoc)
+	 * @see model.IToDoListDAO#updateToDoListItem()
+	 */
+	@Override
+	public Boolean updateToDoListItem(ToDoListItem item) throws ToDoListsPlatformException {
+		try{
+			logger.info("update item "+item.getId()+" "+item.getTitle());
+			this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
+			this.session.beginTransaction();
+			this.session.update(item);
+			this.session.getTransaction().commit();
+
+		}catch (HibernateException e){
+			if (this.session.getTransaction() != null) {
+				this.session.getTransaction().rollback();
+			}
+			logger.info("update item failed"+item.getId()+" "+item.getTitle());
+			throw new ToDoListsPlatformException("Problem update item", e);
+		} finally {
+			this.session.close();
+		}
+		return true;
 	}
 
 

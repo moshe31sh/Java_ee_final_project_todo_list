@@ -1,0 +1,28 @@
+body{
+	width:100%;
+}
+
+#login-form{
+	display:block;
+	min-width: 20%;
+	border: solid 1px blue;
+	min-height: 100px;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 2%;
+	font-size: 14px;
+    text-transform: uppercase;
+	
+}
+
+label{
+    display: inline-block;
+    float: right;
+    clear: left;
+    width: 250px;
+    text-align: left;
+}
+input {
+  display: inline-block;
+  float: left;
+}

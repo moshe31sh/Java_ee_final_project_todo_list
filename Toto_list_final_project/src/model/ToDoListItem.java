@@ -12,6 +12,7 @@ public class ToDoListItem {
 	private int id;
 	private String title;
 	private String description;
+	private TaskStatus status;
 	private int userId ;
 	/**
 	 * Default constructor
@@ -26,12 +27,13 @@ public class ToDoListItem {
 	 * @param description
 	 
 	 */
-	public ToDoListItem(int id, String title, String description ) {
+	public ToDoListItem(int id, String title, String description, int userId ) {
 		super();
 		setId(id);
 		setTitle(title);
 		setDescription(description);
-		setUserId(0); /// need to change 
+		setStatus(TaskStatus.OPEN);
+		setUserId(userId); /// need to change 
 	}
 
 	////****** need to validate values in the setters **** don't forget!!!
@@ -60,6 +62,21 @@ public class ToDoListItem {
 	 */
 	public String getTitle() {
 		return title;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public TaskStatus getStatus() {
+		return status;
+	}
+
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(TaskStatus status) {
+		this.status = status;
 	}
 
 
