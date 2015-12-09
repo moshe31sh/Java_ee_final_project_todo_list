@@ -34,4 +34,21 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>WebContent/WEB-INF/lib/antlr-2.7.6.jar</name>
+			<type>1</type>
+			<location>F:/javaee/hibernate_sample/jars_this_code_sample_uses/antlr-2.7.6.jar</location>
+		</link>
+		<link>
+			<name>WebContent/WEB-INF/lib/commons-collections-3.1.jar</name>
+			<type>1</type>
+			<location>F:/javaee/hibernate_sample/jars_this_code_sample_uses/commons-collections-3.1.jar</location>
+		</link>
+		<link>
+			<name>WebContent/WEB-INF/lib/hibernate3.jar</name>
+			<type>1</type>
+			<location>F:/javaee/hibernate_sample/jars_this_code_sample_uses/hibernate3.jar</location>
+		</link>
+	</linkedResources>
 </projectDescription>

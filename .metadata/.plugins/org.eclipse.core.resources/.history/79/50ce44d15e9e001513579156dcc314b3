@@ -1,0 +1,131 @@
+package controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Collection;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.jdbc.log.Log;
+import com.sun.istack.internal.logging.Logger;
+
+import model.AuthenticationDAO;
+import model.AuthenticationHandlerException;
+import model.HibernateToDoListDAO;
+import model.ToDoListItem;
+import model.ToDoListsPlatformException;
+import model.User;
+import sun.rmi.server.Dispatcher;
+/**
+ * Servlet implementation class ToDoListMainController
+ */
+@WebServlet("/AuthenticationController")
+public class AuthenticationController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	//flag- if user logged in or not
+	private static boolean islogin = false;
+
+	private static User currentUser = null;
+
+	//creating a variable for storing the reference for the request dispatcher
+	RequestDispatcher dispatcher = null;
+	static Logger logger = Logger.getLogger(AuthenticationController.class);
+
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public AuthenticationController() {
+		super();
+
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		logger.info("start");
+		StringBuffer sb = request.getRequestURL();
+		String url = sb.toString();
+		if (url.endsWith("login")){
+//			User currentUser =	authenticate(request , response);
+			dispatcher = getServletContext().getRequestDispatcher("error.jsp");
+			dispatcher.forward(request, response);
+			logger.info(currentUser.getUserName() + " is login");
+			
+			}
+//		if (currentUser !=null){
+//			logger.info(currentUser.getUserName()+ " is login");
+//			dispatcher = getServletContext().getRequestDispatcher("/ToDoListController");
+//			request.setAttribute("user", currentUser);
+//		}else{
+//			dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+//		
+//		}
+//		dispatcher.forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+//		if ((currentUser = authenticate(request , response)) == null){
+//			dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+//		}else{
+//			dispatcher = getServletContext().getRequestDispatcher("/ToDoListController");
+//			getServletContext().setAttribute("user", currentUser);
+//			logger.info("pass " + currentUser.getUserName());
+//		}
+//		dispatcher.forward(request, response);
+		//checking which url address the request was equipped with
+		StringBuffer sb = request.getRequestURL();
+		String url = sb.toString();
+		logger.info("login requset");
+		response.getWriter().println(url);
+		response.getWriter().println(url.endsWith("login"));
+		if (url.endsWith("login")){
+//		User currentUser =	authenticate(request , response);
+		dispatcher = getServletContext().getRequestDispatcher("error.jsp");
+		dispatcher.forward(request, response);
+		logger.info(currentUser.getUserName() + " is login");
+		
+		}
+
+	}
+
+	/**
+	 * this method check if user 
+	 * exist in DB 
+	 * @return true or false
+	 */
+
+	private User authenticate(HttpServletRequest request , HttpServletResponse response ){
+		logger.info("authenticate");
+		User user = null;
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("id");
+		String userPassword = (String)session.getAttribute("password");
+		logger.info(userId + "is try to login");
+		if(userId !=null && userPassword != null){
+			userId = userId.trim();
+			userPassword = userPassword.trim();
+			try{
+				int userIdParsingToInt = Integer.parseInt(userId);
+				user = AuthenticationDAO.getInstance().signInExistUser(userIdParsingToInt, userPassword);
+			}catch (AuthenticationHandlerException e){
+				e.printStackTrace();
+			}
+		}
+		return user;
+	}
+
+
+}

@@ -130,7 +130,6 @@ public class HibernateToDoListDAO implements IToDoListDAO  {
 			{
 				ToDoListItem item = (ToDoListItem) i.next();
 				arrayList.add(item);
-				System.out.println(item.getDescription());
 			}
 				
 		}catch (HibernateException e){

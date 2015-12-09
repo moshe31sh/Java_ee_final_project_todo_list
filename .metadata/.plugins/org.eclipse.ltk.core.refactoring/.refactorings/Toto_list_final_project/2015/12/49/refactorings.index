@@ -10,3 +10,8 @@
 1449255880564	Move compilation unit
 1449255931159	Move compilation unit
 1449311293412	Copy file
+1449333919564	Rename resource 'LogIn.jsp'
+1449333974881	Rename resource 'SignIn.jsp'
+1449335764295	Copy file
+1449347946810	Move 'usermenu.jsp' to 'WebContent'
+1449348670051	Rename type 'ToDoListAuthenticationController'

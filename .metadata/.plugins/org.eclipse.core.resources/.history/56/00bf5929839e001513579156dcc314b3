@@ -1,0 +1,10 @@
+package controller;
+
+public final class ControllerConst {
+
+	static final String USER_MENU = "AppController/usermenu";
+	static final String USER_TASKS = "AppController/items";
+	static final String ERROR = "AppController/error";
+
+
+}

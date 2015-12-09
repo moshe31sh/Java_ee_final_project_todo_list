@@ -1,0 +1,125 @@
+package controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+
+import org.apache.log4j.Logger;
+
+import model.AuthenticationDAO;
+import model.AuthenticationHandlerException;
+import model.HibernateToDoListDAO;
+import model.User;
+
+/**
+ * Servlet implementation class AutenticationController
+ */
+@WebServlet("/AutenticationController/*")
+public class AutenticationController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	public static Logger logger = Logger.getLogger(AutenticationController.class); 
+
+	private HttpSession session = null;
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public AutenticationController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		if (this.session == null){
+			logout(request, response);
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//checking which url address the request was equipped with
+		StringBuffer sb = request.getRequestURL();
+		String url = sb.toString();
+		response.getWriter().println(url);
+		//creating a variable for storing the reference for the request dispatcher
+		RequestDispatcher dispatcher = null;
+		logger.info("start doPost");
+		if(url.endsWith("login")){
+			logger.info("login");
+			//check if user exist in DB
+			User user = userAuthentication(request,response);
+			if(user !=null ){
+
+			}else {
+				logout(request, response);
+			}
+		}
+	}
+
+	/**
+	 * this method verify if user exist in registered on DB 
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private User userAuthentication(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		User user = null;
+
+		String password =(String) request.getParameter("password");
+		String id =(String) request.getParameter("id");
+		if(password != null && id !=null){
+			password = password.trim();
+			id = id.trim();
+			try {
+				user = AuthenticationDAO.getInstance().signInExistUser(Integer.parseInt(id), password);
+				this.session = request.getSession();
+				response.getWriter().println(session.toString());
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (AuthenticationHandlerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			logger.info("user id" + id + " try to login");
+		}
+		return user;
+
+	}
+
+	/**
+	 * this method forward to login page
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private void logout(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		//creating a variable for storing the reference for the request dispatcher
+		RequestDispatcher dispatcher = null;
+		dispatcher = getServletContext().getRequestDispatcher("/login.jsp");			
+		dispatcher.forward(request, response);
+	}
+
+	private void userDBAccess(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		//creating a variable for storing the reference for the request dispatcher
+		RequestDispatcher dispatcher = null;
+		dispatcher = getServletContext().getRequestDispatcher("/AppController");			
+		dispatcher.forward(request, response);
+	}
+}

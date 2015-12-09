@@ -1,0 +1,74 @@
+package controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+
+/**
+ * Servlet implementation class AppController
+ */
+@WebServlet("/AppController/*")
+public class AppController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	public static Logger logger = Logger.getLogger(AppController.class); 
+
+	private HttpSession session = null;
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public AppController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+
+		// TODO Auto-generated method stub
+		//	response.getWriter().append("Served at: ").append(request.getContextPath());
+		logger.info("doGet");
+		response.getWriter().println("doGet");
+		if(this.session != null){
+			doAction(request,response,ControllerConst.USER_MENU);
+		}
+		
+		
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		//checking which url address the request was equipped with
+		response.setContentType("text/html");
+		StringBuffer sb = request.getRequestURL();
+		String url = sb.toString();
+		this.session = request.getSession();
+		if(this.session != null){
+			doAction(request,response,ControllerConst.USER_MENU);
+	//	}else if(url.)
+		}
+	}
+
+	private void doAction(HttpServletRequest request, HttpServletResponse response , String action) throws ServletException, IOException {
+		RequestDispatcher dispatcher = null;
+		dispatcher = getServletContext().getRequestDispatcher("/"+action+".jsp");	
+		dispatcher.forward(request, response);
+
+
+	}
+
+}

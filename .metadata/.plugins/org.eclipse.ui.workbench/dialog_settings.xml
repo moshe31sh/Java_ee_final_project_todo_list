@@ -22,4 +22,6 @@
 			<item value="org.scala-ide.sdt.core.wizards"/>
 		</list>
 	</section>
+	<section name="ImportExportAction">
+	</section>
 </section>

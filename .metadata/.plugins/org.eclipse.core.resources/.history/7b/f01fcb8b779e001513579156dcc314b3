@@ -1,0 +1,63 @@
+package controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+
+/**
+ * Servlet implementation class AppController
+ */
+@WebServlet("/AppController/*")
+public class AppController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	public static Logger logger = Logger.getLogger(AppController.class); 
+
+	private HttpSession session = null;
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AppController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+
+		// TODO Auto-generated method stub
+	//	response.getWriter().append("Served at: ").append(request.getContextPath());
+		logger.info("doGet");
+		response.getWriter().println("doGet");
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//creating a variable for storing the reference for the request dispatcher
+		RequestDispatcher dispatcher = null;
+		logger.info("doPost");
+		response.getWriter().println("doPost");
+		this.session = request.getSession();
+		if(this.session != null){
+			
+			dispatcher = getServletContext().getRequestDispatcher("/usermenu.jsp");			
+		}
+		response.getWriter().println(this.session.toString());
+		dispatcher.forward(request, response);
+
+	}
+
+}

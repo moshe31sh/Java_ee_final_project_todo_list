@@ -1,0 +1,8 @@
+package controller;
+
+public final class ControllerConst {
+
+	static final String USER_MENU = "/usermenu.jsp";
+	static final String USER_TASK = "/items.jsp";
+
+}

@@ -35,6 +35,21 @@ public class ToDoListItem {
 		setStatus(TaskStatus.OPEN);
 		setUserId(userId); /// need to change 
 	}
+	
+	/**
+	 * 
+	 * @param title
+	 * @param description
+	 * @param userId
+	 */
+	public ToDoListItem( String title, String description, int userId ) {
+		super();
+		setId(0);
+		setTitle(title);
+		setDescription(description);
+		setStatus(TaskStatus.OPEN);
+		setUserId(userId); /// need to change 
+	}
 
 	////****** need to validate values in the setters **** don't forget!!!
 
