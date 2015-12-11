@@ -32,6 +32,7 @@ public class ToDoListController extends HttpServlet {
 	private HttpSession session = null;
 	private static boolean isLogin = false;
 
+	private Collection<ToDoListItem> items = null;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -55,14 +56,12 @@ public class ToDoListController extends HttpServlet {
 		String url = sb.toString();
 
 		currentUser = (User)this.session.getAttribute("user");
-		//check if user id logged in
 
-		if (currentUser == null && isLogin == false){
+	 if (currentUser == null && isLogin == false){//check if user id logged in
 			logger.info("Redirect to login");
 			logout(request, response);
-		}
-		else {
-			//if current user is not null , he is log
+
+		}else {//if current user is not null , he is log
 			actionPageSelector(request,response,url);
 		}
 	}
@@ -77,17 +76,16 @@ public class ToDoListController extends HttpServlet {
 		String url = sb.toString();
 		try{
 			//login requset
-
 			if ((userAuthentication(request, response) == true) && (isLogin == false)){
 				isLogin = true;
 				logger.info("user is login");
 				doAction(request,response,ControllerConst.WELCOME);
-			}else{
-				//id user is login forward to requested page
-				if (isLogin == true){	
-					actionPageSelector(request, response , url);
-				}	
+
+			}else if (isLogin == true){	// if user login go to user menu
+				actionPageSelector(request, response , url);
+
 			}
+
 		}catch (Exception e){
 			e.printStackTrace();
 			logout(request, response);
@@ -132,11 +130,17 @@ public class ToDoListController extends HttpServlet {
 				//edit task
 			}else if (url.endsWith(ControllerConst.EDIT_TASK)){
 				doAction(request,response,ControllerConst.EDIT_TASK);
+				logger.info(ControllerConst.EDIT_TASK);
+				editItem(request, response, currentUser.getUserId());
 				//log out
 			}else if (url.endsWith(ControllerConst.LOG_OUT)){
 				logout(request,response);
+				//about
+			}else if (url.endsWith(ControllerConst.ABOUT)){
+				doAction(request,response,ControllerConst.ABOUT);
+
 			}else{
-				doAction(request,response,ControllerConst.USER_MENU);
+				doAction(request,response,ControllerConst.ERROR);
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -154,7 +158,7 @@ public class ToDoListController extends HttpServlet {
 	private void getItems(HttpServletRequest request, HttpServletResponse response ,int userID ) throws ServletException, IOException {
 		try {
 			//get all todo list item from DB
-			Collection<ToDoListItem> items = HibernateToDoListDAO.getInstance().getAllToDoListItem(userID);
+			items = HibernateToDoListDAO.getInstance().getAllToDoListItem(userID);
 			this.session.setAttribute("items",items);
 
 		} catch (ToDoListsPlatformException e) {
@@ -184,6 +188,7 @@ public class ToDoListController extends HttpServlet {
 		if(title != null  && description != null ){
 			try {
 				HibernateToDoListDAO.getInstance().addToDoListItem(new ToDoListItem(title ,description,userID ));
+				upDateOnDataChange(userID); //update session on changes
 			} catch (ToDoListsPlatformException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -203,22 +208,70 @@ public class ToDoListController extends HttpServlet {
 	 */
 	private void deleteItem(HttpServletRequest request, HttpServletResponse response ,int userID ) throws ServletException, IOException {
 		String id = (String) request.getParameter("id");	
-			if(id != null ){
+		if(id != null ){
 			try {
-			int itemID =Integer.parseInt(id);
-			Collection<ToDoListItem> items = (Collection<ToDoListItem>)session.getAttribute("items");
-			for (ToDoListItem toDoListItem : items) {
-				if (toDoListItem.getId() == itemID){
-				HibernateToDoListDAO.getInstance().deleteToDoListItem(toDoListItem);
+				int itemID =Integer.parseInt(id);
+				items = (Collection<ToDoListItem>)session.getAttribute("items");
+				for (ToDoListItem toDoListItem : items) {
+					if (toDoListItem.getId() == itemID){
+						HibernateToDoListDAO.getInstance().deleteToDoListItem(toDoListItem);//delete item
+						upDateOnDataChange(userID); //update session on changes
+					}
 				}
-			}
 			} catch (ToDoListsPlatformException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}catch (NumberFormatException e){
+				//TODO need to decide what to do 				
 			}
 
 		}
 
+	}
+	/**
+	 * this method edit item by item id 
+	 * @param request
+	 * @param response
+	 * @param userID
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private void editItem(HttpServletRequest request, HttpServletResponse response ,int userID ) throws ServletException, IOException {
+		String id = (String) request.getParameter("id");	
+		String title = (String) request.getParameter("title");
+		String description = (String) request.getParameter("description");
+		boolean isChanged = false; // in case of data change flag is to and then update DB
+		ToDoListItem itemToUpdate = null;
+		if(id != null && title != null && description != null){
+			try {
+				int itemID =Integer.parseInt(id);
+				items = (Collection<ToDoListItem>)session.getAttribute("items");
+				for (ToDoListItem toDoListItem : items) {
+					if (toDoListItem.getId() == itemID){ 
+						itemToUpdate = toDoListItem;
+						if (!(itemToUpdate.getTitle().equals(title))&& !(title.equals(""))){ // if title is changed 
+							itemToUpdate.setTitle(title);
+							isChanged = true;
+						}
+						if (!(itemToUpdate.getDescription().equals(description)) && !description.equals("")){ // if description is changed 
+							itemToUpdate.setDescription(description);
+							isChanged = true;
+						}
+						//save if item changed
+						if (isChanged == true){
+							HibernateToDoListDAO.getInstance().updateToDoListItem(itemToUpdate);
+							upDateOnDataChange(userID); //update session on changes
+						}
+					}
+				}
+			} catch (ToDoListsPlatformException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}catch (NumberFormatException e){
+				//TODO need to decide what to do 				
+			}
+
+		}
 	}
 
 
@@ -259,10 +312,11 @@ public class ToDoListController extends HttpServlet {
 				return true;
 			} catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logout(request, response);
 			} catch (AuthenticationHandlerException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logout(request, response);
+
 			}
 
 			logger.info("user id" + id + " try to login");
@@ -288,5 +342,17 @@ public class ToDoListController extends HttpServlet {
 
 
 	}
+
+	private void upDateOnDataChange(int userId){
+		this.session.removeAttribute("items");
+		try {
+			this.items = HibernateToDoListDAO.getInstance().getAllToDoListItem(userId);
+		} catch (ToDoListsPlatformException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.session.setAttribute("items", this.items);
+	}
+
 
 }

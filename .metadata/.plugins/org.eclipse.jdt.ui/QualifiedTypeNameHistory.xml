@@ -54,4 +54,6 @@
 <fullyQualifiedTypeName name="controller.ControllerConst"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="model.AuthenticationDAO"/>
+<fullyQualifiedTypeName name="model.ModelConst"/>
+<fullyQualifiedTypeName name="java.lang.NullPointerException"/>
 </qualifiedTypeNameHistroy>

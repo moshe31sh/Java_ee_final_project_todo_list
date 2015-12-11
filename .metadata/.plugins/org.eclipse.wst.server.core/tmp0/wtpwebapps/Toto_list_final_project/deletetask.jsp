@@ -15,9 +15,9 @@
 <%
 Collection<ToDoListItem> items = (Collection<ToDoListItem>)session.getAttribute("items");
 out.println("<table border='1'>");
-out.println("<tr><th>id</th><th>name</th><th>description</th></tr>");
+out.println("<tr><th>Id</th><th>Title</th><th>Description</th><th>Status</th><tr></tr>");
 for(ToDoListItem item : items) {
-	out.println("<tr><td>"+item.getId()+"</td><td>"+item.getTitle()+"</td><td>"+item.getDescription()+"</td></tr>");	
+	out.println("<tr><td>"+item.getId()+"</td><td>"+item.getTitle()+"</td><td>"+item.getDescription()+"</td><td>"+item.getStatus()+"</td></tr>");	
 }
 out.println("</table>");
 %> 

@@ -10137,3 +10137,149 @@ scala.reflect.internal.MissingRequirementError: class request in compiler mirror
 2015-12-11 23:00:58,056  WARN [Worker-44] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
 2015-12-11 23:00:58,212  WARN [Worker-44] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
 2015-12-11 23:00:58,212  WARN [Worker-44] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:13:39,872  WARN [main] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:13:39,873  WARN [main] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:13:48,493  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:13:48,496  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:13:48,675  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:13:48,675  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:13:49,046  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:13:49,046  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:13:49,431  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:13:49,431  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:13:50,652  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:13:50,653  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:13:50,719  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:13:50,720  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:13:50,787  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:13:50,787  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:13:59,312  WARN [org.eclipse.jdt.internal.ui.text.JavaReconciler] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:13:59,312  WARN [org.eclipse.jdt.internal.ui.text.JavaReconciler] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:14:09,536  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:14:09,536  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:14:09,578  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:14:09,579  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:14:09,861  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:14:09,862  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:15:32,474  WARN [ModalContext] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:15:32,475  WARN [ModalContext] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:15:33,109  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:15:33,110  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:15:33,164  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:15:33,164  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:16:28,386  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:16:28,387  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:16:28,462  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:16:28,462  WARN [Worker-0] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:16:50,120  WARN [main] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:16:50,121  WARN [main] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:17:11,933  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:17:11,934  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:17:11,997  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:17:11,997  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:17:12,143  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:17:12,143  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:18:58,243  WARN [Worker-1] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:18:58,243  WARN [Worker-1] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:18:58,278  WARN [Worker-1] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:18:58,278  WARN [Worker-1] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:18:58,319  WARN [Worker-1] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:18:58,319  WARN [Worker-1] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:19:14,593  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:19:14,593  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:19:14,644  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:19:14,644  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:19:14,673  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:19:14,673  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:19:20,912  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:19:20,913  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:19:20,997  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:19:20,998  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:19:21,028  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:19:21,028  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:21:27,454  WARN [Worker-9] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:21:27,455  WARN [Worker-9] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:21:27,493  WARN [Worker-9] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:21:27,493  WARN [Worker-9] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:21:27,516  WARN [Worker-9] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:21:27,516  WARN [Worker-9] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:23:05,052  WARN [main] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:23:05,053  WARN [main] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:23:25,457  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:23:25,458  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:23:25,508  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:23:25,508  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:23:25,777  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:23:25,777  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:24:30,351  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:24:30,351  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:24:30,378  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:24:30,378  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:24:30,635  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:24:30,635  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:26:01,568  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:26:01,569  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:26:01,612  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:26:01,612  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:26:01,641  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:26:01,641  WARN [Worker-12] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:27:12,651  WARN [Worker-7] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:27:12,652  WARN [Worker-7] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:27:12,707  WARN [Worker-7] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:27:12,708  WARN [Worker-7] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:27:12,784  WARN [Worker-7] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:27:12,785  WARN [Worker-7] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:28:02,738  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:28:02,739  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:28:02,808  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:28:02,808  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:28:02,828  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:28:02,829  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:28:30,961  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:28:30,961  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:28:30,998  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:28:30,999  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:28:31,026  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:28:31,026  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:28:44,070  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:28:44,070  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:28:44,123  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:28:44,124  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:28:44,150  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:28:44,150  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:29:04,602  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:29:04,602  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:29:04,648  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:29:04,648  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:29:04,673  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:29:04,673  WARN [Worker-5] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:29:09,557  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:29:09,558  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:29:09,596  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:29:09,596  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:29:09,631  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:29:09,631  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:30:08,923  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:30:08,924  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:30:08,971  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:30:08,971  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:30:08,993  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:30:08,993  WARN [Worker-6] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:32:02,147  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:32:02,147  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:32:02,206  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:32:02,207  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:32:02,566  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:32:02,566  WARN [Worker-2] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:33:27,032  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:33:27,032  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:33:27,055  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:33:27,055  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:33:27,216  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:33:27,216  WARN [Worker-8] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:37:11,531  WARN [Worker-11] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:37:11,531  WARN [Worker-11] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:37:11,578  WARN [Worker-11] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:37:11,578  WARN [Worker-11] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2015-12-12 00:37:11,596  WARN [Worker-11] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2015-12-12 00:37:11,596  WARN [Worker-11] - ScalaProject - Project Toto_list_final_project runs on platform default installation.

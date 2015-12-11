@@ -12,7 +12,7 @@ public class ToDoListItem {
 	private int id;
 	private String title;
 	private String description;
-	private String status;
+	private TaskStatus status;
 	private int userId ;
 	/**
 	 * Default constructor
@@ -32,7 +32,7 @@ public class ToDoListItem {
 		setId(id);
 		setTitle(title);
 		setDescription(description);
-		setStatus(ModelConst.OPEN);
+		setStatus(TaskStatus.OPEN);
 		setUserId(userId); /// need to change 
 	}
 	
@@ -47,7 +47,7 @@ public class ToDoListItem {
 		setId(0);
 		setTitle(title);
 		setDescription(description);
-		setStatus(ModelConst.OPEN);
+		setStatus(TaskStatus.OPEN);
 		setUserId(userId); /// need to change 
 	}
 
@@ -82,7 +82,7 @@ public class ToDoListItem {
 	/**
 	 * @return the status
 	 */
-	public String getStatus() {
+	public TaskStatus getStatus() {
 		return status;
 	}
 
@@ -90,7 +90,7 @@ public class ToDoListItem {
 	/**
 	 * @param status the status to set
 	 */
-	public void setStatus(String status) {
+	public void setStatus(TaskStatus status) {
 		this.status = status;
 	}
 

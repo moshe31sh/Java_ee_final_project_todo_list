@@ -54,7 +54,7 @@ public class ToDoListController extends HttpServlet {
 		//checking which url address the request was equipped with
 		StringBuffer sb = request.getRequestURL();
 		String url = sb.toString();
-
+	try{	
 		currentUser = (User)this.session.getAttribute("user");
 
 	 if (currentUser == null && isLogin == false){//check if user id logged in
@@ -64,6 +64,9 @@ public class ToDoListController extends HttpServlet {
 		}else {//if current user is not null , he is log
 			actionPageSelector(request,response,url);
 		}
+	}catch (NullPointerException e){
+		logout(request, response);
+	}
 	}
 
 	/**
@@ -143,7 +146,6 @@ public class ToDoListController extends HttpServlet {
 				doAction(request,response,ControllerConst.ERROR);
 			}
 		}catch(Exception e){
-			e.printStackTrace();
 			logout(request, response);
 		}
 	}
@@ -240,9 +242,10 @@ public class ToDoListController extends HttpServlet {
 		String id = (String) request.getParameter("id");	
 		String title = (String) request.getParameter("title");
 		String description = (String) request.getParameter("description");
+		String status =(String) request.getParameter("status");
 		boolean isChanged = false; // in case of data change flag is to and then update DB
 		ToDoListItem itemToUpdate = null;
-		if(id != null && title != null && description != null){
+		if(id != null && title != null && description != null  && status != null){
 			try {
 				int itemID =Integer.parseInt(id);
 				items = (Collection<ToDoListItem>)session.getAttribute("items");
@@ -255,6 +258,10 @@ public class ToDoListController extends HttpServlet {
 						}
 						if (!(itemToUpdate.getDescription().equals(description)) && !description.equals("")){ // if description is changed 
 							itemToUpdate.setDescription(description);
+							isChanged = true;
+						}
+						if (!(itemToUpdate.getStatus().equals(description)) && !status.equals("")){ // if description is changed 
+							itemToUpdate.setStatus(status);
 							isChanged = true;
 						}
 						//save if item changed

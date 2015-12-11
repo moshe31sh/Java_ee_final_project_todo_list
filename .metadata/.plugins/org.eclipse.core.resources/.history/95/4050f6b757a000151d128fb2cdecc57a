@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-<h2>Delete  task</h2>
+<h2>Edit  task</h2>
 <%
 Collection<ToDoListItem> items = (Collection<ToDoListItem>)session.getAttribute("items");
 out.println("<table border='1'>");
@@ -22,9 +22,13 @@ for(ToDoListItem item : items) {
 out.println("</table>");
 %> 
 </br>
-<form id="deletetask" method="post" action="/Toto_list_final_project/ToDoListController/deletetask">
+<form id="edittask" method="post" action="">
     <table>
-    <tr><td>id:</td><td><input  type="text" name="id"  title="Inset Id" /></td></tr>    
+    <tr><td>id:</td><td><input  type="text" placeholder="id" name="id"  title="Inset Id"/></td></tr>    
+     <tr><td>title:</td><td><input  type="text" placeholder="title" name="title"  title="Insert Title"/></td></tr>    
+     <tr><td>description:</td><td><input  type="text" placeholder="description" name="description"  title="Insert Description"/></td></tr>    
+     <tr><td>status:</td><td><input  type="text" placeholder="status" name="status"  title="Insert status"/></td></tr>    
+       
 </table>
    
     <input class="submit" type="submit"/>
