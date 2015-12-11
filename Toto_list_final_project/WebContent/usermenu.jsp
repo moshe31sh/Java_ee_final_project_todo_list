@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="./CSS/user_menu_style.css">
+<link rel="stylesheet" type="text/css" href="../CSS/user_menu_style.css">
 <title>User-Dashboard</title>
 </head>
 <body>
@@ -24,10 +24,13 @@ out.println("<div class=\"hellouser\">"+"Hello "+userName+"</div>");
 %>	
 
 <a class="button" href="/Toto_list_final_project/controller/items">My-Task</a>
-<a class="button"href="#">Add-Task</a>
-<a class="button"href="#">Delete-Task</a>
-<a class="button"href="#">Edit-Task</a>
-<a class="button"href="#">Log-Out</a>
+<a class="button"href="/Toto_list_final_project/controller/addtask">Add-Task</a>
+<a class="button"href="/Toto_list_final_project/controller/deletetask">Delete-Task</a>
+<a class="button"href="/Toto_list_final_project/controller/edittask">Edit-Task</a>
+<a class="button"href="/Toto_list_final_project/controller/about">About</a>
+<a class="button"href="/Toto_list_final_project/controller/login">Log-Out</a>
+
+
 
 </div>
 </body>

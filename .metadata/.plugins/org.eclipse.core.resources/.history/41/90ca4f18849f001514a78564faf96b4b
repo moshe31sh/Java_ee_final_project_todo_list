@@ -1,0 +1,25 @@
+body {
+	background: white;
+	font-family: Helvetica, Arial, sans-serif;
+		margin-left:300px;
+		margin-top: 150px;
+}
+
+#addtask{
+	display:block;
+	width: 50%;
+	border: solid 1px blue;
+	min-height: 100px;
+	margin-left:262px;
+	padding: 2%;
+	font-size: 14px;
+    text-transform: uppercase;
+	
+}
+
+.submit{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:2%;
+}

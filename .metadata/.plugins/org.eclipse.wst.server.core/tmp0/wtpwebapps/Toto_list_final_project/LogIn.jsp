@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html/; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="./CSS/style.css">
+<link rel="stylesheet" type="text/css" href="../CSS/style.css">
 
 <title>Login</title>
 </head>
 <body>
 <nav id="navigation-menu">
 <ul>
-<li><a href="./signin.jsp">Sign-in</a></li>
-<li><a href="./login.jsp">Login</a></li>
+<li><a href="/Toto_list_final_project/SigninController/signin">Sign-in</a></li>
+<li><a href="/Toto_list_final_project/ToDoListController/login">Login</a></li>
 </ul></nav>
-<form id="login-form" method="post" action="AutenticationController">
+<form id="login-form" method="post" action="/Toto_list_final_project/ToDoListController/">
     <table>
     <tr><td>id:</td><td><input  type="text" placeholder="id" name="id"  title="Inset Id"/></td></tr>    
     <tr><td>password:</td><td><input type="password" size ="20" name="password" placeholder="password" title="Inset Pass"/></td></tr>

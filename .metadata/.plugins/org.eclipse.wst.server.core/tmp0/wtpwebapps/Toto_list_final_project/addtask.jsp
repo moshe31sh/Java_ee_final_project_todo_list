@@ -3,26 +3,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html/; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="../CSS/style.css">
+
 <title>Add new task</title>
 <jsp:include page="usermenu.jsp"/>
 </head>
 <body>
 <div class="container">
-<form id="addTask" method="post" action="">
-<div class="form-group">
-<label for="title">Title</label>
-    <input type="text" class="form-control" name="title">
-</div>
-<div class="form-group">
-<label for="description">Description</label>
-    <input type="text" class="form-control" name="description">
-</div>
-  <button type="submit" class="btn btn-default">Submit</button>
+<h2>Add new task</h2>
+</br>
+<form id="addTask" method="post" action="/Toto_list_final_project/ToDoListController/addtask">
+    <table>
+    <tr><td>title:</td><td><input  type="text" placeholder="title" name="title"  title="Insert Title"/></td></tr>    
+     <tr><td>description:</td><td><input  type="text" placeholder="description" name="description"  title="Insert Description"/></td></tr>    
+       
+
+</table>
+   
+    <input class="submit" type="submit"/>
 </form>
 </div>
 </body>

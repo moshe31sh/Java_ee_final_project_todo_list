@@ -4,16 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="./CSS/user_menu_style.css">
+<link rel="stylesheet" type="text/css" href="../CSS/user_menu_style.css">
 <title>My task</title>
 <jsp:include page="usermenu.jsp"/>
 </head>
 <body>
 <div class="container">
 
-HELLO
-
-<%-- <%
+<%
 Collection<ToDoListItem> items = (Collection<ToDoListItem>)session.getAttribute("items");
 out.println("<table border='1'>");
 out.println("<tr><th>id</th><th>name</th><th>description</th></tr>");
@@ -21,7 +19,7 @@ for(ToDoListItem item : items) {
 	out.println("<tr><td>"+item.getId()+"</td><td>"+item.getTitle()+"</td><td>"+item.getDescription()+"</td></tr>");	
 }
 out.println("</table>");
-%>  --%>
+%> 
 </div>
 </body>
 </html>

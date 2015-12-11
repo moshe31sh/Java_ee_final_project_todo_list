@@ -1,0 +1,78 @@
+package controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+
+import model.HibernateToDoListDAO;
+import model.ToDoListItem;
+import model.ToDoListsPlatformException;
+import model.User;
+
+/**
+ * Servlet implementation class ActionController
+ */
+@WebServlet("/ActionController/*")
+public class ActionController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	public static Logger logger = Logger.getLogger(ActionController.class); 
+
+	private HttpSession session = null;
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ActionController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			User currentUser = null;
+		
+		//checking which url address the request was equipped with
+				StringBuffer sb = request.getRequestURL();
+				String url = sb.toString();
+				currentUser = (User)this.session.getAttribute("user");
+				
+				if (currentUser != null){
+					if (url.endsWith(ControllerConst.ADD_TASK)){
+						addItem(request,response,currentUser.getUserId());
+					}
+					return;
+				}
+	}
+
+	
+	private void addItem(HttpServletRequest request, HttpServletResponse response ,int userID ) throws ServletException, IOException {
+		///need to check if on line if neccesery**** TODO
+
+		logger.debug("Add item");
+		String title = (String) request.getParameter("title");
+		String decription = (String) request.getParameter("decription");
+		
+		if(title != null  && decription != null && userID > 0	){
+			try {
+				HibernateToDoListDAO.getInstance().addToDoListItem(new ToDoListItem(title ,decription,userID ));
+			} catch (ToDoListsPlatformException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+}

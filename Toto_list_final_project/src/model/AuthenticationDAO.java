@@ -51,37 +51,37 @@ public class AuthenticationDAO implements IAuthenticationDAO{
 		//user holder var
 		User authenticatUser = null;
 		logger.info("Sign in request" + userId);
-		
+
 		/// set encrypted password to user
 		password = (AuthenticationHandlerUtilitiesScala.passEncryption(password));
 		//check if user exist , if yes returns user instance
 		if ((authenticatUser = checkIfUserExist(userId)) != null){
-	
-			///***** need to implement some logic here ******
-		logger.info(authenticatUser.getUserName());
-		
-		if(authenticatUser.getPassword().equals(password)){
-			logger.info("user exist in DB");
-			return authenticatUser;
-		}
-		else{
-			return null;
-		}
-		//System.out.println(AuthenticationHandlerUtilitiesScala.comperUsers(user, authenticatUser));
 
-			
+			///***** need to implement some logic here ******
+			logger.info(authenticatUser.getUserName());
+
+			if(authenticatUser.getPassword().equals(password)){
+				logger.info("user exist in DB");
+				return authenticatUser;
+			}
+			else{
+				return null;
+			}
+			//System.out.println(AuthenticationHandlerUtilitiesScala.comperUsers(user, authenticatUser));
+
+
 		}else {
-	//		System.out.println("No such user"+user.getUserName());
+			//		System.out.println("No such user"+user.getUserName());
 			logger.info("error authentication user");
 		}
 		return authenticatUser;
 	}
-	
 
 
-	
-	
-	
+
+
+
+
 
 	/**
 	 * gets user object verify if exist in DB
@@ -90,10 +90,7 @@ public class AuthenticationDAO implements IAuthenticationDAO{
 	 * @param user
 	 * @throws ToDoListsPlatformException 
 	 */
-	public void signUpNewUser(User user) throws  AuthenticationHandlerException{
-
-
-
+	public void signInNewUser(User user) throws  AuthenticationHandlerException{
 		logger.info("Sign up request");
 		//check if user is in DB
 		if (checkIfUserExist(user.getUserId()) == null){

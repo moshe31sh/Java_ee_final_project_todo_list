@@ -1,0 +1,23 @@
+package controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class ActionUserMenu implements IAction {
+
+	/* (non-Javadoc)
+	 * @see controller.IAction#action(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
+	@Override
+	public boolean action(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	
+		return false;
+	}
+
+	
+}

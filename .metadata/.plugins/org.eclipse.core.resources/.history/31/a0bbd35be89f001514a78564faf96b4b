@@ -1,0 +1,138 @@
+package controller;
+
+import java.io.IOException;
+import java.util.Collection;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+
+import model.HibernateToDoListDAO;
+import model.ToDoListItem;
+import model.ToDoListsPlatformException;
+import model.User;
+
+/**
+ * Servlet implementation class AppController
+ */
+@WebServlet("/AppController/*")
+public class AppController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	public static Logger logger = Logger.getLogger(AppController.class); 
+	
+	private HttpSession session = null;
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public AppController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().println("doGet");
+		//checking which url address the request was equipped with
+		StringBuffer sb = request.getRequestURL();
+		String url = sb.toString();
+		try{
+			this.session = request.getSession();
+			User currenUser = (User)this.session.getAttribute("user");
+			if(currenUser == null){
+				doAction(request,response,ControllerConst.USER_MENU);
+				//if action is show all todo list items
+			}else if(url.endsWith(ControllerConst.USER_TASKS)){
+				items(request, response, currenUser.getUserId());
+				//if action is logout  
+			}else if (url.endsWith(ControllerConst.LOG_OUT)){
+				logout(request,response);
+			}else if(url.endsWith(ControllerConst.ADD_TASK)){
+				addTask(request,response);
+			}
+
+		}catch (Exception e){
+			doAction(request,response,ControllerConst.ERROR);
+			e.printStackTrace();
+
+		}
+
+
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.session = request.getSession();
+		if(this.session.getAttribute("user") != null){
+			doAction(request,response,ControllerConst.USER_MENU);
+		}
+		else{
+			logout(request,response);
+		}
+	}
+
+
+	/**
+	 * get action from usermenu.jsp and active request action
+	 * @param request
+	 * @param response
+	 * @param action
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private void doAction(HttpServletRequest request, HttpServletResponse response , String action) throws ServletException, IOException {
+		RequestDispatcher dispatcher = null;
+		dispatcher = getServletContext().getRequestDispatcher("/"+action+".jsp");	
+		dispatcher.forward(request, response);
+
+
+	}
+
+	/**
+	 * this method get all todo list from DB
+	 * @param request
+	 * @param response
+	 * @param userID
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private void items(HttpServletRequest request, HttpServletResponse response ,int userID ) throws ServletException, IOException {
+		try {
+			//get all todo list item from DB
+			Collection<ToDoListItem> items = HibernateToDoListDAO.getInstance().getAllToDoListItem(userID);
+			this.session.setAttribute("items",items);
+
+		} catch (ToDoListsPlatformException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		doAction(request,response,ControllerConst.USER_TASKS);
+	}
+
+	/**
+	 * this method logout current user
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private void logout(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+	session.invalidate();
+	doAction(request, response, ControllerConst.LOG_OUT);
+	}
+	
+	private void addTask(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+		doAction(request, response, ControllerConst.ADD_TASK);
+	}
+}

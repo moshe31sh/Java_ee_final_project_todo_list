@@ -25,6 +25,6 @@ public interface IAuthenticationDAO {
 	 * @param user
 	 * @throws ToDoListsPlatformException 
 	 */
-	public void signUpNewUser(User user) throws  AuthenticationHandlerException;
+	public void signInNewUser(User user) throws  AuthenticationHandlerException;
 	
 }
