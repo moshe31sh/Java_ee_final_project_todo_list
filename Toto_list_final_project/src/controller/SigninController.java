@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
-import model.AuthenticationDAO;
+import model.HibernateAuthenticationDAO;
 import model.AuthenticationHandlerException;
 import model.User;
 
@@ -26,7 +26,7 @@ public class SigninController extends HttpServlet {
 	//instantiate logger     
 	public static Logger logger = Logger.getLogger(SigninController.class); 
 	//http session var
-	private HttpSession session = null;
+	private HttpSession session;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -44,13 +44,13 @@ public class SigninController extends HttpServlet {
 		this.session = request.getSession(true);
 		//checking which url address the request was equipped with
 		StringBuffer sb = request.getRequestURL();
-		String url = sb.toString();
-		if (url.endsWith("signin")){
-		dispatcher = getServletContext().getRequestDispatcher("/signin.jsp");	
-		
-		}else {
+//		String url = sb.toString();
+//		if (url.endsWith("signin")){
+//		dispatcher = getServletContext().getRequestDispatcher("/signin.jsp");	
+//		
+//		}else {
 			dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-		}
+//		}
 		dispatcher.forward(request, response);
 	}
 
@@ -83,11 +83,11 @@ public class SigninController extends HttpServlet {
 			lName = lName.trim();
 			id = id.trim();
 			password = password.trim();
-			response.getWriter().println(fName);
+		//	response.getWriter().println(fName);
 			try{
 				int intId = Integer.parseInt(id);
 				try {
-					AuthenticationDAO.getInstance().signInNewUser(new User(fName,lName,intId , password));
+					HibernateAuthenticationDAO.getInstance().signInNewUser(new User(fName,lName,intId , password));
 				} catch (AuthenticationHandlerException e) {
 					// TODO Auto-generated catch block
 					
@@ -109,7 +109,6 @@ public class SigninController extends HttpServlet {
 	 */
 	private void directToLogInPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = null;
-		this.session.invalidate(); // close current session
 		dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 		dispatcher.forward(request, response);
 	}

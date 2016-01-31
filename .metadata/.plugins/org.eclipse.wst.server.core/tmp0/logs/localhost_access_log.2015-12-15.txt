@@ -1,0 +1,8 @@
+127.0.0.1 - - [15/Dec/2015:10:40:18 +0200] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [15/Dec/2015:10:40:19 +0200] "GET /Toto_list_final_project/controller/* HTTP/1.1" 500 3593
+127.0.0.1 - - [15/Dec/2015:10:40:52 +0200] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [15/Dec/2015:10:40:53 +0200] "GET /Toto_list_final_project/controller/* HTTP/1.1" 200 942
+0:0:0:0:0:0:0:1 - - [15/Dec/2015:10:40:53 +0200] "GET /Toto_list_final_project/CSS/style.css HTTP/1.1" 200 682
+0:0:0:0:0:0:0:1 - - [15/Dec/2015:10:41:05 +0200] "POST /Toto_list_final_project/ToDoListController/ HTTP/1.1" 200 942
+0:0:0:0:0:0:0:1 - - [15/Dec/2015:10:41:12 +0200] "POST /Toto_list_final_project/ToDoListController/ HTTP/1.1" 200 1447
+0:0:0:0:0:0:0:1 - - [15/Dec/2015:10:41:12 +0200] "GET /Toto_list_final_project/CSS/user_menu_style.css HTTP/1.1" 200 1265

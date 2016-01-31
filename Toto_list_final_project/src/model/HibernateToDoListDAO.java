@@ -18,11 +18,11 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import com.sun.istack.internal.logging.Logger;
 
 /**
- * 
+ * IHibernateToDoListDAO implementation
  * @author Moshe Shimon
  *
  */
-public class HibernateToDoListDAO implements IToDoListDAO  {
+public class HibernateToDoListDAO implements IHibernateToDoListDAO  {
 	//logger instance
 	static Logger logger = Logger.getLogger(HibernateToDoListDAO.class);
 
@@ -77,7 +77,12 @@ public class HibernateToDoListDAO implements IToDoListDAO  {
 			logger.info("Add item failed"+item.getId()+" "+item.getTitle());
 			throw new ToDoListsPlatformException("Problem add item", e);
 		} finally {
+			try {
 			this.session.close();
+			}catch (HibernateException e){
+				e.printStackTrace();
+			}
+			
 		}
 		return true;
 	}
@@ -101,7 +106,11 @@ public class HibernateToDoListDAO implements IToDoListDAO  {
 			logger.info("Add item failed"+item.getId()+" "+item.getTitle());
 			throw new ToDoListsPlatformException("Problem add item", e);
 		} finally {
-			this.session.close();
+			try {
+				this.session.close();
+				}catch (HibernateException e){
+					e.printStackTrace();
+				}
 		}
 		return true;
 	}
@@ -111,19 +120,12 @@ public class HibernateToDoListDAO implements IToDoListDAO  {
 	 */
 	@Override
 	public Collection<ToDoListItem> getAllToDoListItem(int userId) throws ToDoListsPlatformException {
-		
-		
-		/*
-		 * To do
-		 * fix this method by using collection
-		 */
-		
+				
 		ArrayList<ToDoListItem> arrayList = new ArrayList<ToDoListItem>();
 		
 		try{
 			logger.info("Get items");
 			this.session = SessionFactoryAccess.getInstance().getSessionFactory().openSession();
-			this.session.beginTransaction();
 			List<ToDoListItem> itemLiset = session.createQuery("FROM ToDoListItem WHERE userId="+userId).list();
 			Iterator i = itemLiset.iterator();
 			while(i.hasNext()) 
@@ -133,13 +135,14 @@ public class HibernateToDoListDAO implements IToDoListDAO  {
 			}
 				
 		}catch (HibernateException e){
-			if (this.session.getTransaction() != null) {
-				this.session.getTransaction().rollback();
-			}
-			
+						
 			throw new ToDoListsPlatformException("Problem get all items", e);
 		} finally {
-			this.session.close();
+			try {
+				this.session.close();
+				}catch (HibernateException e){
+					e.printStackTrace();
+				}
 		}
 		return arrayList;
 	}
@@ -166,7 +169,11 @@ public class HibernateToDoListDAO implements IToDoListDAO  {
 			logger.info("update item failed"+item.getId()+" "+item.getTitle());
 			throw new ToDoListsPlatformException("Problem update item", e);
 		} finally {
-			this.session.close();
+			try {
+				this.session.close();
+				}catch (HibernateException e){
+					e.printStackTrace();
+				}
 		}
 		return true;
 	}

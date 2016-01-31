@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * App vars definition
+ * @author moshe
+ *
+ */
+
 public final class ModelConst {
 
 	

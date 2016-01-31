@@ -1,0 +1,9 @@
+127.0.0.1 - - [12/Jan/2016:10:42:43 +0200] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [12/Jan/2016:10:42:52 +0200] "GET /Toto_list_final_project/controller/* HTTP/1.1" 200 942
+0:0:0:0:0:0:0:1 - - [12/Jan/2016:10:42:52 +0200] "GET /Toto_list_final_project/CSS/style.css HTTP/1.1" 200 682
+0:0:0:0:0:0:0:1 - - [12/Jan/2016:10:43:16 +0200] "POST /Toto_list_final_project/ToDoListController/ HTTP/1.1" 200 942
+0:0:0:0:0:0:0:1 - - [12/Jan/2016:10:43:36 +0200] "POST /Toto_list_final_project/ToDoListController/ HTTP/1.1" 200 942
+0:0:0:0:0:0:0:1 - - [12/Jan/2016:10:43:43 +0200] "GET /Toto_list_final_project/SigninController/signin HTTP/1.1" 200 1149
+0:0:0:0:0:0:0:1 - - [12/Jan/2016:10:43:53 +0200] "POST /Toto_list_final_project/SigninController/signin HTTP/1.1" 200 942
+0:0:0:0:0:0:0:1 - - [12/Jan/2016:10:44:00 +0200] "POST /Toto_list_final_project/ToDoListController/ HTTP/1.1" 200 942
+0:0:0:0:0:0:0:1 - - [12/Jan/2016:10:44:11 +0200] "POST /Toto_list_final_project/ToDoListController/ HTTP/1.1" 200 942

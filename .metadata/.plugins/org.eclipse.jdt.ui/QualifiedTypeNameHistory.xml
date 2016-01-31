@@ -13,7 +13,6 @@
 <fullyQualifiedTypeName name="org.hibernate.classic.Session"/>
 <fullyQualifiedTypeName name="model.AuthenticationHandler"/>
 <fullyQualifiedTypeName name="javax.swing.text.StyledEditorKit.BoldAction"/>
-<fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
 <fullyQualifiedTypeName name="model.SessionFactoryAccess"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="javax.management.Query"/>
@@ -50,10 +49,14 @@
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
 <fullyQualifiedTypeName name="model.HibernateToDoListDAO"/>
-<fullyQualifiedTypeName name="model.ToDoListItem"/>
-<fullyQualifiedTypeName name="controller.ControllerConst"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="model.AuthenticationDAO"/>
 <fullyQualifiedTypeName name="model.ModelConst"/>
 <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="scala.collection.mutable.HashTable"/>
+<fullyQualifiedTypeName name="java.util.Hashtable"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="model.ToDoListItem"/>
+<fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
+<fullyQualifiedTypeName name="controller.ControllerConst"/>
 </qualifiedTypeNameHistroy>

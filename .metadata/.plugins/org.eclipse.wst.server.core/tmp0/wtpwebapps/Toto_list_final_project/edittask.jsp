@@ -13,11 +13,15 @@
 <div class="container">
 <h2>Edit  task</h2>
 <%
-Collection<ToDoListItem> items = (Collection<ToDoListItem>)session.getAttribute("items");
+Map<Integer , ToDoListItem> userTasks = (Map<Integer , ToDoListItem>)session.getAttribute("items");
+//Collection<ToDoListItem> items = (Collection<ToDoListItem>)session.getAttribute("items");
 out.println("<table border='1'>");
 out.println("<tr><th>Id</th><th>Title</th><th>Description</th><th>Status</th><tr></tr>");
-for(ToDoListItem item : items) {
-	out.println("<tr><td>"+item.getId()+"</td><td>"+item.getTitle()+"</td><td>"+item.getDescription()+"</td><td>"+item.getStatus()+"</td></tr>");	
+//Set keys = userTasks.keySet();
+
+for(Map.Entry<Integer , ToDoListItem> userTask : userTasks.entrySet()){
+//for(ToDoListItem item : userTasks) {
+	out.println("<tr><td>"+userTask.getKey()+"</td><td>"+userTask.getValue().getTitle()+"</td><td>"+userTask.getValue().getDescription()+"</td><td>"+userTask.getValue().getStatus()+"</td></tr>");	
 }
 out.println("</table>");
 %> 

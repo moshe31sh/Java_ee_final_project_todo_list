@@ -20,23 +20,28 @@ public class ToDoListMain {
 			//	}
 			//
 			//			//	AuthenticationHandler.passAuthentication("mmm");
-					try{
-						User me =	AuthenticationDAO.getInstance().signInExistUser(1245, "abcd");
-						System.out.println(me.getUserLastName());
-				
-		//	AuthenticationHandler.getInstance().signUpNewUser(user);
-		//			AuthenticationHandler.getInstance().signInExistUser(user);
-			//
-		}catch(AuthenticationHandlerException e){
-			e.printStackTrace();
+//					try{
+//						User me =	HibernateAuthenticationDAO.getInstance().signInExistUser(1245, "abcd");
+//						System.out.println(me.getUserLastName());
+//				
+//		//	AuthenticationHandler.getInstance().signUpNewUser(user);
+//		//			AuthenticationHandler.getInstance().signInExistUser(user);
+//			//
+//		}catch(AuthenticationHandlerException e){
+//			e.printStackTrace();
 
 			//		}catch (ToDoListsPlatformException e){
 			//			e.printStackTrace();
 				
-
+			try {
+				HibernateAuthenticationDAO.getInstance().getAllUsers();
+			} catch (AuthenticationHandlerException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 
 			//	System.out.println(AuthenticationHandlerUtilitiesScala.passEncryption("mose"));
 	//	}
-	}
+//	}
 	}
 }
