@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Override"/>
-<fullyQualifiedTypeName name="com.sun.istack.internal.logging.Logger"/>
-<fullyQualifiedTypeName name="model.IToDoListDAO"/>
-<fullyQualifiedTypeName name="model.ToDoListDAO"/>
-<fullyQualifiedTypeName name="com.sun.javafx.collections.MappingChange.Map"/>
-<fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
 <fullyQualifiedTypeName name="org.hibernate.cfg.AnnotationConfiguration"/>
 <fullyQualifiedTypeName name="java.security.MessageDigest"/>
 <fullyQualifiedTypeName name="java.security.NoSuchAlgorithmException"/>
@@ -29,7 +23,6 @@
 <fullyQualifiedTypeName name="model.AuthenticationHandlerUtilitiesScala"/>
 <fullyQualifiedTypeName name="com.mysql.jdbc.log.Log"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-<fullyQualifiedTypeName name="model.AuthenticationHandlerException"/>
 <fullyQualifiedTypeName name="sun.rmi.server.Dispatcher"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="controller.ToDoListController"/>
@@ -43,8 +36,6 @@
 <fullyQualifiedTypeName name="model.ToDoListsPlatformException"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="controller.IAction"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-<fullyQualifiedTypeName name="model.User"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
@@ -59,4 +50,14 @@
 <fullyQualifiedTypeName name="model.ToDoListItem"/>
 <fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
 <fullyQualifiedTypeName name="controller.ControllerConst"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSessionListener"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSessionEvent"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="listeners.SessionCounterListener"/>
+<fullyQualifiedTypeName name="model.User"/>
+<fullyQualifiedTypeName name="model.IHibernateAuthenticationDAO"/>
+<fullyQualifiedTypeName name="model.AuthenticationHandlerException"/>
+<fullyQualifiedTypeName name="model.HibernateAuthenticationDAO"/>
 </qualifiedTypeNameHistroy>

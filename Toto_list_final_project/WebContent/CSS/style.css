@@ -5,8 +5,9 @@
 body {
     padding-top: 90px;
     background-image: url("../IMAGES/background-login.jpg");
-    background-size: contain;    
+    background-size: contain;   
 }
+
 .panel-login {
 	border-color: #ccc;
 	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);

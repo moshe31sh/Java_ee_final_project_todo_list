@@ -5,13 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="../CSS/user_menu_style.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript" src="../JS/bootstrap.min.js"></script>
+<script type="text/javascript" src="../JS/scripts.js"></script>
 <title>User-Dashboard</title>
 </head>
 <body>
 
 
 
-<div id="leftBar">
+<div id="leftBar" class="col-md-3">
 <%
 User currentUser = (User)session.getAttribute("user");
 if (currentUser == null){
@@ -23,14 +27,15 @@ userName = userName + currentUser.getUserName().substring(1);
 out.println("<div class=\"hellouser\">"+"Hello "+userName+"</div>");
 %>	
 
-<a class="button" href="/Toto_list_final_project/controller/items">My-Task</a>
-<a class="button"href="/Toto_list_final_project/controller/addtask">Add-Task</a>
-<a class="button"href="/Toto_list_final_project/controller/deletetask">Delete-Task</a>
-<a class="button"href="/Toto_list_final_project/controller/edittask">Edit-Task</a>
-<a class="button"href="/Toto_list_final_project/controller/about">About</a>
-<a class="button"href="/Toto_list_final_project/controller/login">Log-Out</a>
+<ul>
+<li class="list-nav"><a class="list-btn" href="/Toto_list_final_project/controller/items"><span class="glyphicon glyphicon-list-alt"></span>&nbsp; My-Tasks</a></li>
+<li class="list-nav"><a class="list-btn" href="/Toto_list_final_project/controller/addtask"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add-Task</a></li>
+<li class="list-nav"><a class="list-btn" href="/Toto_list_final_project/controller/edittask"><span class="glyphicon glyphicon-pencil"></span>&nbsp; Edit-Task</a></li>
+<li class="list-nav"><a class="list-btn" href="/Toto_list_final_project/controller/deletetask"><span class="glyphicon glyphicon-trash"></span>&nbsp; Delete-Task</a></li>
+<li class="list-nav"><a class="list-btn" href="/Toto_list_final_project/controller/about"><span class="glyphicon glyphicon-book"></span>&nbsp; About</a></li>
+<li class="list-nav"><a class="list-btn" href="/Toto_list_final_project/controller/login"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Log-Out</a></li>
 
-
+</ul>
 
 </div>
 </body>

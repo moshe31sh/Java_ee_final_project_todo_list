@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="model.*" errorPage="/error.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="../CSS/user_menu_style.css">
+<!-- <link rel="stylesheet" type="text/css" href="../CSS/style.css">
+ --><link rel="stylesheet" type="text/css" href="../CSS/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript" src="../JS/bootstrap.min.js"></script>
+<script type="text/javascript" src="../JS/scripts.js"></script>
+<title>User-Dashboard</title>
+</head>
+<body>
+
+
+
+<div id="leftBar">
+<%
+User currentUser = (User)session.getAttribute("user");
+if (currentUser == null){
+out.println("<jsp:forword page=/login.jsp/>");
+}
+String userName = currentUser.getUserName().substring(0,1).toUpperCase();
+userName = userName + currentUser.getUserName().substring(1); 
+
+out.println("<div class=\"hellouser\">"+"Hello "+userName+"</div>");
+%>	
+<ul>
+<li><a class="list-btn" href="/Toto_list_final_project/controller/adminsession">Session</a></li>
+<li><a class="" href="/Toto_list_final_project/controller/userlist">User-list</a></li>
+<li><a class="" href="/Toto_list_final_project/controller/login">Log-Out</a></li>
+</ul>
+</div>
+</body>
+</html>

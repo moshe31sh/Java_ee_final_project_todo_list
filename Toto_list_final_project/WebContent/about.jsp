@@ -4,13 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html/; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../CSS/style.css">
+<link rel="stylesheet" type="text/css" href="./CSS/add_task_style.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript" src="../JS/bootstrap.min.js"></script>
 <title>About</title>
 <jsp:include page="usermenu.jsp"/>
 </head>
 <body>
-<div class="container">
-About
+<div class="col-md-9 col-md-offset-3">
+<br><br><br><br><h3>Project name: Todolist Java EE final project</h3>
+<h3>Student names:Liron Sharabi 036806065 , Moshe Shimon 039852132 </h3>
+<h3>Lecturer name :Chaim Michael
 </div>
 </body>
 </html>

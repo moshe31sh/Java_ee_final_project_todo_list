@@ -5,13 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="../CSS/user_menu_style.css">
-<title>User-Dashboard</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript" src="../JS/bootstrap.min.js"></script>
+<script type="text/javascript" src="../JS/scripts.js"></script>
+<title>Admin-Dashboard</title>
 </head>
 <body>
 
 
 
-<div id="leftBar">
+<div id="leftBar" class="col-md-3">
 <%
 User currentUser = (User)session.getAttribute("user");
 if (currentUser == null){
@@ -22,13 +26,11 @@ userName = userName + currentUser.getUserName().substring(1);
 
 out.println("<div class=\"hellouser\">"+"Hello "+userName+"</div>");
 %>	
-
-<a class="button" href="/Toto_list_final_project/controller/adminsession">Session</a>
-<a class="button"href="/Toto_list_final_project/controller/userlist">User-list</a>
-<a class="button"href="/Toto_list_final_project/controller/login">Log-Out</a>
-
-
-
+<ul>
+<li class="list-nav"><a class="list-btn" href="/Toto_list_final_project/controller/adminsession"><span class="glyphicon glyphicon-dashboard"></span>&nbsp; Session</a></li>
+<li class="list-nav"><a class="list-btn" href="/Toto_list_final_project/controller/userlist"><span class="glyphicon glyphicon-user"></span>&nbsp; User-List</a></li>
+<li class="list-nav"><a class="list-btn" href="/Toto_list_final_project/controller/login"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Log-Out</a></li>
+</ul>
 </div>
 </body>
 </html>
