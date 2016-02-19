@@ -28,7 +28,7 @@ for(Map.Entry<Integer , ToDoListItem> userTask : userTasks.entrySet()){
 out.println("</table>");
 %> 
 </br>
-<form id="edittask" method="post" action="">
+<form id="edittask" method="post" action="/Toto_list_final_project/ToDoListController/edittask">
     <table>
     <tr><td>Id:</td><td><input  type="text" placeholder="id" name="id"  title="Inset Id"/></td></tr>    
      <tr><td>Title:</td><td><input  type="text" placeholder="title" name="title"  title="Insert Title"/></td></tr>    

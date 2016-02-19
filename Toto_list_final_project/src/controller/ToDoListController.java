@@ -25,7 +25,7 @@ import model.User;
 /**
  * Servlet implementation class ToDoListController
  */
-//@WebServlet("/ToDoListController/*")
+@WebServlet("/ToDoListController/*")
 public class ToDoListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//instantiate logger     
@@ -35,8 +35,6 @@ public class ToDoListController extends HttpServlet {
 	private static boolean isLogin = false;
 
 	private Collection<ToDoListItem> items;
-	private Collection<User> UsersList;
-
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -58,69 +56,53 @@ public class ToDoListController extends HttpServlet {
 		//checking which url address the request was equipped with
 		StringBuffer sb = request.getRequestURL();
 		String url = sb.toString();
-		try{	
-			currentUser = (User)this.session.getAttribute("user");
+	try{	
+		currentUser = (User)this.session.getAttribute("user");
 
-			if (currentUser == null && isLogin == false){//check if user id logged in
-				logger.info("Redirect to login");
-				logout(request, response);
-
-			}else {//if current user is not null , he is log
-				actionPageSelector(request,response,url);
-			}
-		}catch (NullPointerException e){
+	 if (currentUser == null && isLogin == false){//check if user id logged in
+			logger.info("Redirect to login");
 			logout(request, response);
+
+		}else {//if current user is not null , he is log
+			userActionPageSelector(request,response,url);
 		}
+	}catch (NullPointerException e){
+		logout(request, response);
+	}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User user;
+
+		User currentUser = null;
 		//checking which url address the request was equipped with
 		StringBuffer sb = request.getRequestURL();
 		String url = sb.toString();
 		try{
-			if(url.endsWith(ControllerConst.LOG_IN)){
-				//login requset
-				if (((user = userAuthentication(request, response)) != null) && (isLogin == false)){
-					isLogin = true;
-					logger.info("user is login");
-					if (checkIfAdmin(user)){
-						logger.info("Admin is login");
-						doAction(request,response,ControllerConst.ADMIN_MENU);				
-					}else{
-						doAction(request,response,ControllerConst.USER_MENU);
-					}
-				}else if (isLogin == true){	// if user login go to user menu
-					actionPageSelector(request, response , url);
-						
+			//login requset
+			if ((userAuthentication(request, response) == true) && (isLogin == false)){
+				isLogin = true;
+				logger.info("user is login");
+				currentUser = (User)this.session.getAttribute("user");
+				if (currentUser.getUserId()== 0){
+					doAction(request,response,ControllerConst.ADMIN_MENU);
 				}else{
-					logger.info("Authentication failed");
-					logout(request, response);
+				doAction(request,response,ControllerConst.USER_MENU);
 				}
+			}else if (isLogin == true){	// if user login go to user menu
+				userActionPageSelector(request, response , url);
+
 			}
+
 		}catch (Exception e){
 			e.printStackTrace();
 			logout(request, response);
 		}
-
 	}
 
 
-
-	/**
-	 * this method check for admin login
-	 * @return true if is admin or false if not
-	 */
-	public boolean checkIfAdmin(User user){
-		if((user.getUserId() == ControllerConst.ADMIN_ID)&& user.getUserName().
-				equals(ControllerConst.ADMIN)){
-			return true;
-		}
-		return false;
-	}
 
 
 	/**
@@ -131,7 +113,7 @@ public class ToDoListController extends HttpServlet {
 	 * @throws ServletException
 	 * @throws IOException
 	 */
-	private void actionPageSelector(HttpServletRequest request, HttpServletResponse response , String url) throws ServletException, IOException {
+	private void userActionPageSelector(HttpServletRequest request, HttpServletResponse response , String url ) throws ServletException, IOException {
 		logger.info("Get items is active");
 
 		//user object ref 
@@ -180,6 +162,37 @@ public class ToDoListController extends HttpServlet {
 			logout(request, response);
 		}
 	}
+	
+	/**
+	 * this method get user list from DB
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	private void getUsers(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+		//get all todo list item from DB
+		try {
+			Collection<User> UsersList = HibernateAuthenticationDAO.getInstance().getAllUsers();
+	
+		Map<Integer , User> userList = new Hashtable<Integer,User>();
+		int i = 1;
+		for (User user : UsersList) {
+			userList.put(i++, user);
+
+		}
+
+		this.session.setAttribute("users",userList);
+
+		} catch (AuthenticationHandlerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+}
+	
+	
+	
 	/**
 	 * this method get all todo list from DB
 	 * @param request
@@ -194,11 +207,11 @@ public class ToDoListController extends HttpServlet {
 			items = HibernateToDoListDAO.getInstance().getAllToDoListItem(userID);
 			Map<Integer , ToDoListItem> userTasks = new Hashtable<Integer,ToDoListItem>();
 			int i = 1;
-			for (ToDoListItem toDoListItem : items) {
-				userTasks.put(i++, toDoListItem);
-
-			}
-
+		for (ToDoListItem toDoListItem : items) {
+			userTasks.put(i++, toDoListItem);
+			
+		}
+		
 			this.session.setAttribute("items",userTasks);
 
 		} catch (ToDoListsPlatformException e) {
@@ -208,27 +221,6 @@ public class ToDoListController extends HttpServlet {
 
 	}
 
-	
-	private void getUsers(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-			//get all todo list item from DB
-			try {
-				UsersList = HibernateAuthenticationDAO.getInstance().getAllUsers();
-		
-			Map<Integer , User> userList = new Hashtable<Integer,User>();
-			int i = 1;
-			for (User user : UsersList) {
-				userList.put(i++, user);
-
-			}
-
-			this.session.setAttribute("users",userList);
-
-			} catch (AuthenticationHandlerException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-	}
 
 
 	/**
@@ -273,15 +265,15 @@ public class ToDoListController extends HttpServlet {
 			try {
 				int itemID =Integer.parseInt(id);
 				Map<Integer , ToDoListItem> userTasks = (Map<Integer , ToDoListItem>)session.getAttribute("items");
-
+			
 				for(Map.Entry<Integer , ToDoListItem> userTask : userTasks.entrySet()){
 					if (userTask.getKey() == itemID){
 						HibernateToDoListDAO.getInstance().deleteToDoListItem(userTask.getValue());//delete item
 						upDateOnDataChange(userID); //update session on changes	
 					}
-
+						
 				}
-
+	
 			} catch (ToDoListsPlatformException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -311,10 +303,10 @@ public class ToDoListController extends HttpServlet {
 			try {
 				int itemID =Integer.parseInt(id);
 				Map<Integer , ToDoListItem> userTasks = (Map<Integer , ToDoListItem>)session.getAttribute("items");
-
+				
 				for(Map.Entry<Integer , ToDoListItem> userTask : userTasks.entrySet()){
 					if (userTask.getKey() == itemID){
-
+		
 						itemToUpdate = userTask.getValue();
 						if (!(itemToUpdate.getTitle().equals(title))&& !(title.equals(""))){ // if title is changed 
 							itemToUpdate.setTitle(title);
@@ -369,7 +361,7 @@ public class ToDoListController extends HttpServlet {
 	 * @throws ServletException
 	 * @throws IOException
 	 */
-	private User userAuthentication(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+	private boolean userAuthentication(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		User user = null;
 		this.session = request.getSession();
 		String password =(String) request.getParameter("password");
@@ -380,7 +372,7 @@ public class ToDoListController extends HttpServlet {
 			try {
 				user = HibernateAuthenticationDAO.getInstance().signInExistUser(Integer.parseInt(id), password);
 				this.session.setAttribute("user", user);
-				return user;
+				return true;
 			} catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
 				logout(request, response);
@@ -392,7 +384,7 @@ public class ToDoListController extends HttpServlet {
 
 			logger.info("user id" + id + " try to login");
 		}
-		return user;
+		return false;
 
 	}
 

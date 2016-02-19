@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;controller.ToDoListController.actionPageSelector(...)&apos; to &apos;userActionPageSelector&apos;&#x0D;&#x0A;- Original project: &apos;Toto_list_final_project&apos;&#x0D;&#x0A;- Original element: &apos;controller.ToDoListController.actionPageSelector(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;controller.ToDoListController.userActionPageSelector(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;actionPageSelector&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;controller{ToDoListController.java[ToDoListController~actionPageSelector~QHttpServletRequest;~QHttpServletResponse;~QString;" name="userActionPageSelector" references="true" stamp="1455886145122" version="1.0"/>
+</session>

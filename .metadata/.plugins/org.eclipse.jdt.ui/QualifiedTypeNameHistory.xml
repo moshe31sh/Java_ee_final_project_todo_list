@@ -55,9 +55,9 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSessionListener"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSessionEvent"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="listeners.SessionCounterListener"/>
-<fullyQualifiedTypeName name="model.User"/>
 <fullyQualifiedTypeName name="model.IHibernateAuthenticationDAO"/>
 <fullyQualifiedTypeName name="model.AuthenticationHandlerException"/>
 <fullyQualifiedTypeName name="model.HibernateAuthenticationDAO"/>
+<fullyQualifiedTypeName name="model.User"/>
+<fullyQualifiedTypeName name="listeners.SessionCounterListener"/>
 </qualifiedTypeNameHistroy>
