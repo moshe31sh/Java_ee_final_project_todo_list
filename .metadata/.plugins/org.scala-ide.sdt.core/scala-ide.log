@@ -13806,3 +13806,15 @@ scala.reflect.internal.MissingRequirementError: object java.util.List<model.User
 2016-02-19 15:29:17,566  WARN [Worker-17] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
 2016-02-19 15:29:18,255  WARN [Worker-17] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
 2016-02-19 15:29:18,255  WARN [Worker-17] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2016-02-19 18:53:53,257  WARN [main] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2016-02-19 18:53:53,272  WARN [main] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2016-02-19 18:54:01,527  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2016-02-19 18:54:01,546  WARN [Worker-4] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2016-02-19 18:54:02,923  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2016-02-19 18:54:02,923  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2016-02-19 18:54:03,175  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2016-02-19 18:54:03,176  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2016-02-19 18:54:03,811  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2016-02-19 18:54:03,812  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project runs on platform default installation.
+2016-02-19 18:54:04,367  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project has platform default sourceLevel.
+2016-02-19 18:54:04,367  WARN [Worker-10] - ScalaProject - Project Toto_list_final_project runs on platform default installation.

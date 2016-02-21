@@ -10335,3 +10335,78 @@ org.eclipse.core.runtime.CoreException: Unable to find WEB-INF/lib folder. Ensur
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 !SUBENTRY 1 com.vaadin.integration.eclipse 4 0 2016-02-19 15:28:38.274
 !MESSAGE Unable to find WEB-INF/lib folder. Ensure the project is a dynamic web project.
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2016-02-19 16:35:50.155
+!MESSAGE Several ports (8005, 8080, 8009) required by Tomcat v8.0 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
+!SESSION 2016-02-19 18:53:22.889 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2016-02-19 18:53:43.344
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-02-19 18:53:43.344
+!MESSAGE A conflict occurred for CTRL+F4:
+Binding(CTRL+F4,
+	ParameterizedCommand(Command(org.eclipse.ui.file.close,Close,
+		Close the active editor,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@51bac3f5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+F4,
+	ParameterizedCommand(Command(org.scala.tools.eclipse.search.commands.OpenTypeHierarchy,Open Type Hierarchy,
+		Open Type Hierarchy,
+		Category(org.scala.tools.eclipse.search.commands,Search - Scala,Search - Scala,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6d4b8fc0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-02-19 18:53:59.921
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\moshe_000'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.integration.eclipse 2 0 2016-02-19 18:54:27.922
+!MESSAGE Could not check Vaadin version in project RemoteSystemsTempFiles
+!STACK 1
+org.eclipse.core.runtime.CoreException: Unable to find WEB-INF/lib folder. Ensure the project is a dynamic web project.
+	at com.vaadin.integration.eclipse.util.ErrorUtil.newCoreException(ErrorUtil.java:141)
+	at com.vaadin.integration.eclipse.util.ProjectUtil.getWebInfLibFolder(ProjectUtil.java:110)
+	at com.vaadin.integration.eclipse.util.ProjectUtil.getVaadinLibraryInProject(ProjectUtil.java:376)
+	at com.vaadin.integration.eclipse.util.ProjectUtil.getVaadinLibraryVersion(ProjectUtil.java:351)
+	at com.vaadin.integration.eclipse.background.CheckVaadinVersionsJob.getVaadinProjects(CheckVaadinVersionsJob.java:100)
+	at com.vaadin.integration.eclipse.background.CheckVaadinVersionsJob.run(CheckVaadinVersionsJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vaadin.integration.eclipse 4 0 2016-02-19 18:54:27.925
+!MESSAGE Unable to find WEB-INF/lib folder. Ensure the project is a dynamic web project.
+
+!ENTRY com.vaadin.integration.eclipse 2 0 2016-02-19 18:54:27.927
+!MESSAGE Could not check Vaadin version in project Servers
+!STACK 1
+org.eclipse.core.runtime.CoreException: Unable to find WEB-INF/lib folder. Ensure the project is a dynamic web project.
+	at com.vaadin.integration.eclipse.util.ErrorUtil.newCoreException(ErrorUtil.java:141)
+	at com.vaadin.integration.eclipse.util.ProjectUtil.getWebInfLibFolder(ProjectUtil.java:110)
+	at com.vaadin.integration.eclipse.util.ProjectUtil.getVaadinLibraryInProject(ProjectUtil.java:376)
+	at com.vaadin.integration.eclipse.util.ProjectUtil.getVaadinLibraryVersion(ProjectUtil.java:351)
+	at com.vaadin.integration.eclipse.background.CheckVaadinVersionsJob.getVaadinProjects(CheckVaadinVersionsJob.java:100)
+	at com.vaadin.integration.eclipse.background.CheckVaadinVersionsJob.run(CheckVaadinVersionsJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.vaadin.integration.eclipse 4 0 2016-02-19 18:54:27.927
+!MESSAGE Unable to find WEB-INF/lib folder. Ensure the project is a dynamic web project.
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-02-19 19:17:23.680
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-02-19 19:17:23.712
+!MESSAGE IvyDE plugin started
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2016-02-19 19:19:17.742
+!MESSAGE Several ports (8080, 8009) required by Tomcat v8.0 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
